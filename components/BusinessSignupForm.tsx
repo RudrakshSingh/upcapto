@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { motion } from 'framer-motion'
 
 const businessSizes = [
   { value: '1-10', label: '1-10 employees' },
@@ -139,11 +140,37 @@ export default function BusinessSignupForm() {
   if (isSubmitted) {
     return (
       <div className="cred-card p-8 text-center">
-        <div className="w-16 h-16 bg-cred-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-cred-gray-400 border-t-transparent rounded-full animate-spin"></div>
+        {/* Animated Tick Mark */}
+        <div className="w-16 h-16 bg-gradient-to-r from-green-500 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center relative overflow-hidden">
+          {/* Success Circle Animation */}
+          <div className="absolute inset-0 rounded-full border-4 border-green-300 animate-ping"></div>
+          
+          {/* Tick Mark */}
+          <svg 
+            className="w-8 h-8 text-white animate-bounce" 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path 
+              strokeLinecap="round" 
+              strokeLinejoin="round" 
+              strokeWidth="3" 
+              d="M5 13l4 4L19 7"
+              className="animate-pulse"
+            />
+          </svg>
         </div>
-        <h3 className="cred-subheading text-2xl mb-2">You're In!</h3>
-        <p className="cred-body">We'll notify you when we launch.</p>
+        
+        {/* Success Message */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h3 className="cred-subheading text-2xl mb-2 text-green-600">You're In!</h3>
+          <p className="cred-body text-gray-600">We'll notify you when we launch.</p>
+        </motion.div>
       </div>
     )
   }
@@ -259,9 +286,16 @@ export default function BusinessSignupForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="cred-button w-full py-4 px-6 text-lg disabled:opacity-50"
+          className="cred-button w-full py-4 px-6 text-lg disabled:opacity-50 relative"
         >
-          {isSubmitting ? 'Joining...' : 'Join the Revolution'}
+          {isSubmitting ? (
+            <div className="flex items-center justify-center">
+              <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+              Joining...
+            </div>
+          ) : (
+            'Join the Revolution'
+          )}
         </button>
       </div>
     </form>
