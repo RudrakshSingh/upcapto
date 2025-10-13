@@ -45,11 +45,68 @@ export default function BusinessSignupForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [validationErrors, setValidationErrors] = useState<{[key: string]: string}>({})
+
+  // Validation functions
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    return emailRegex.test(email)
+  }
+
+  const validatePhone = (phone: string) => {
+    const phoneRegex = /^[6-9]\d{9}$/
+    return phoneRegex.test(phone.replace(/\D/g, ''))
+  }
+
+  const validateForm = () => {
+    const errors: {[key: string]: string} = {}
+
+    // Name validation
+    if (!formData.name.trim()) {
+      errors.name = 'Name is required'
+    } else if (formData.name.trim().length < 2) {
+      errors.name = 'Name must be at least 2 characters'
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      errors.email = 'Email is required'
+    } else if (!validateEmail(formData.email)) {
+      errors.email = 'Please enter a valid email address'
+    }
+
+    // Phone validation
+    if (!formData.phone.trim()) {
+      errors.phone = 'Phone number is required'
+    } else if (!validatePhone(formData.phone)) {
+      errors.phone = 'Please enter a valid 10-digit Indian phone number'
+    }
+
+    // Business size validation
+    if (!formData.businessSize) {
+      errors.businessSize = 'Please select your business size'
+    }
+
+    // Nature of business validation
+    if (!formData.natureOfBusiness) {
+      errors.natureOfBusiness = 'Please select your business type'
+    }
+
+    setValidationErrors(errors)
+    return Object.keys(errors).length === 0
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
     setError('')
+    setValidationErrors({})
+    
+    // Validate form before submission
+    if (!validateForm()) {
+      setIsSubmitting(false)
+      return
+    }
     
     try {
       const response = await fetch('/api/waitlist-working', {
@@ -106,9 +163,12 @@ export default function BusinessSignupForm() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="cred-input w-full"
+            className={`cred-input w-full ${validationErrors.name ? 'border-red-500' : ''}`}
             placeholder="Enter your full name"
           />
+          {validationErrors.name && (
+            <p className="text-red-500 text-sm mt-1">{validationErrors.name}</p>
+          )}
         </div>
 
         <div>
@@ -120,9 +180,12 @@ export default function BusinessSignupForm() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="cred-input w-full"
+            className={`cred-input w-full ${validationErrors.email ? 'border-red-500' : ''}`}
             placeholder="Enter your business email"
           />
+          {validationErrors.email && (
+            <p className="text-red-500 text-sm mt-1">{validationErrors.email}</p>
+          )}
         </div>
 
         <div>
@@ -134,9 +197,13 @@ export default function BusinessSignupForm() {
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="cred-input w-full"
-            placeholder="Enter your mobile number"
+            className={`cred-input w-full ${validationErrors.phone ? 'border-red-500' : ''}`}
+            placeholder="Enter your 10-digit mobile number"
+            maxLength={10}
           />
+          {validationErrors.phone && (
+            <p className="text-red-500 text-sm mt-1">{validationErrors.phone}</p>
+          )}
         </div>
 
         <div>
@@ -147,7 +214,7 @@ export default function BusinessSignupForm() {
             required
             value={formData.businessSize}
             onChange={(e) => setFormData({ ...formData, businessSize: e.target.value })}
-            className="cred-input w-full"
+            className={`cred-input w-full ${validationErrors.businessSize ? 'border-red-500' : ''}`}
           >
             <option value="">Select business size</option>
             {businessSizes.map((size) => (
@@ -156,6 +223,9 @@ export default function BusinessSignupForm() {
               </option>
             ))}
           </select>
+          {validationErrors.businessSize && (
+            <p className="text-red-500 text-sm mt-1">{validationErrors.businessSize}</p>
+          )}
         </div>
 
         <div>
@@ -166,7 +236,7 @@ export default function BusinessSignupForm() {
             required
             value={formData.natureOfBusiness}
             onChange={(e) => setFormData({ ...formData, natureOfBusiness: e.target.value })}
-            className="cred-input w-full"
+            className={`cred-input w-full ${validationErrors.natureOfBusiness ? 'border-red-500' : ''}`}
           >
             <option value="">Select nature of business</option>
             {natureOfBusiness.map((business) => (
@@ -175,6 +245,9 @@ export default function BusinessSignupForm() {
               </option>
             ))}
           </select>
+          {validationErrors.natureOfBusiness && (
+            <p className="text-red-500 text-sm mt-1">{validationErrors.natureOfBusiness}</p>
+          )}
         </div>
 
         {error && (
