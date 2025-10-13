@@ -21,6 +21,10 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Mobile optimization */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 body {
@@ -49,6 +53,48 @@ body {
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Mobile responsiveness fixes */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Fix gradient text visibility on mobile */
+  .gradient-text {
+    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #1e40af; /* Fallback color for better visibility */
+  }
+  
+  /* Ensure text is readable on mobile */
+  .text-responsive {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    line-height: 1.4;
+  }
+  
+  /* Fix mobile overflow issues */
+  .mobile-container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* S24 Ultra and large phones optimization */
+@media (max-width: 430px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  /* Smaller text for very small screens */
+  .text-responsive {
+    font-size: clamp(0.875rem, 3.5vw, 1.25rem);
+  }
 }
 
 /* CRED-style selection */

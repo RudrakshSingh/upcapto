@@ -32,10 +32,10 @@ export default function PromiseSection() {
         <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-gradient-to-tr from-secondary-teal/5 to-accent-blue/5 rounded-full blur-3xl"></div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-container">
         <div ref={headingRef} className="text-center mb-20">
           <motion.h2 
-            className="text-5xl md:text-6xl lg:text-7xl font-display font-bold text-cred-black mb-8 leading-tight"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-cred-black mb-8 leading-tight"
             animate={{ 
               color: ["#051622", "#0072CE", "#051622"]
             }}
@@ -46,12 +46,12 @@ export default function PromiseSection() {
             }}
           >
             One Platform. 
-            <span className="bg-gradient-to-r from-cred-blue-600 to-cred-green-600 bg-clip-text text-transparent">
+            <span className="gradient-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent font-bold">
               Every Function.
             </span>
           </motion.h2>
           <div ref={descriptionRef}>
-            <p className="text-xl md:text-2xl text-cred-gray-600 max-w-5xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-cred-gray-600 max-w-5xl mx-auto leading-relaxed px-4">
               Retailers today juggle 5–10 different tools: accounting, POS, HR, inventory, e-commerce, marketing… 
               <span className="font-semibold text-cred-black"> Etelios replaces them all with one simple screen.</span>
             </p>
@@ -59,7 +59,7 @@ export default function PromiseSection() {
         </div>
 
         {/* Cread-style Modules Grid */}
-        <div ref={modulesRef} className="grid grid-cols-3 md:grid-cols-9 gap-6 mb-16">
+        <div ref={modulesRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-9 gap-4 sm:gap-6 mb-16">
           {modules.map((module, index) => (
             <motion.div
               key={module.name}
