@@ -15,61 +15,9 @@ export default function CountdownTimer() {
   const [isUrgent, setIsUrgent] = useState(false)
   const [isTicking, setIsTicking] = useState(false)
 
-  // Classic Clock Ticking Sound
-  const playTickingSound = () => {
-    try {
-      // Check if audio is supported and user has interacted
-      if (typeof window === 'undefined') return
-      
-      // Create or resume audio context
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
-      
-      // Resume context if suspended (required for user interaction)
-      if (audioContext.state === 'suspended') {
-        audioContext.resume().catch(() => {
-          // Silently fail if audio can't be resumed
-          return
-        })
-      }
-      
-      const oscillator = audioContext.createOscillator()
-      const gainNode = audioContext.createGain()
-      
-      oscillator.connect(gainNode)
-      gainNode.connect(audioContext.destination)
-      
-      // Classic clock tick sound - sharp and precise
-      oscillator.type = 'sine'
-      oscillator.frequency.setValueAtTime(2000, audioContext.currentTime)
-      oscillator.frequency.exponentialRampToValueAtTime(1000, audioContext.currentTime + 0.05)
-      
-      // Quick, sharp tick with higher volume
-      gainNode.gain.setValueAtTime(0, audioContext.currentTime)
-      gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.01)
-      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1)
-      
-      oscillator.start(audioContext.currentTime)
-      oscillator.stop(audioContext.currentTime + 0.1)
-      
-    } catch (error) {
-      // Silently fail - don't log errors in production
-      return
-    }
-  }
+  // Ticking sound removed
 
   useEffect(() => {
-    // Enable audio on first user interaction
-    const enableAudio = () => {
-      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
-      if (audioContext.state === 'suspended') {
-        audioContext.resume()
-      }
-    }
-    
-    // Add click listener to enable audio
-    document.addEventListener('click', enableAudio, { once: true })
-    document.addEventListener('touchstart', enableAudio, { once: true })
-    
     // Set a fixed launch date 90 days from when component mounts
     const launchDate = new Date(Date.now() + (90 * 24 * 60 * 60 * 1000)).getTime()
     
@@ -98,7 +46,7 @@ export default function CountdownTimer() {
       const newTime = calculateTimeLeft()
       
       // Play ticking sound every second
-      playTickingSound()
+      // Ticking sound removed
       setIsTicking(true)
       setTimeout(() => setIsTicking(false), 200)
       
