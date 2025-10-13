@@ -26,10 +26,10 @@ export async function GET(request: NextRequest) {
     const db = client.db(process.env.MONGODB_DATABASE || 'upcapto')
     const collection = db.collection('waitlist')
     
-    // Test insert
+    // Test insert with unique email
     const testEntry = {
       name: 'Test Connection',
-      email: 'test@connection.com',
+      email: `test-connection-${Date.now()}@example.com`,
       phone: '1234567890',
       businessSize: '1-10',
       natureOfBusiness: 'test',
