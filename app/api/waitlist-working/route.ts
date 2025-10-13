@@ -34,22 +34,11 @@ export async function POST(request: NextRequest) {
     
     try {
       client = new MongoClient(uri, {
-        serverSelectionTimeoutMS: 15000,
-        connectTimeoutMS: 15000,
-        socketTimeoutMS: 15000,
-        maxPoolSize: 1,
-        minPoolSize: 0,
-        maxIdleTimeMS: 30000,
+        serverSelectionTimeoutMS: 10000,
+        connectTimeoutMS: 10000,
+        socketTimeoutMS: 10000,
         retryWrites: true,
-        retryReads: true,
-        w: 'majority',
-        readPreference: 'primary',
-        // Enhanced SSL settings
-        tls: true,
-        tlsAllowInvalidCertificates: false,
-        tlsAllowInvalidHostnames: false,
-        // Additional connection options
-        heartbeatFrequencyMS: 10000
+        w: 'majority'
       })
       
       await client.connect()
