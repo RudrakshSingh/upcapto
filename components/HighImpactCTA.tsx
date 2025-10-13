@@ -114,13 +114,13 @@ export default function HighImpactCTA() {
 
       {/* Clean CRED-style background - no animations */}
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mobile-container">
         <div ref={heroRef} className="text-center mb-16">
                  <div
                    ref={headingRef}
                    className="mb-12 mt-8"
                  >
-                   <h1 className="cred-heading text-5xl md:text-7xl mb-6 text-gray-900">
+                   <h1 className="cred-heading text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-6 text-gray-900 px-4">
                      TRANSFORM YOUR
                      <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                        {' '}BUSINESS
@@ -131,15 +131,15 @@ export default function HighImpactCTA() {
                  </div>
           
                  <div ref={descriptionRef}>
-                   <p className="cred-body text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-700">
+                   <p className="cred-body text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-700 px-4">
                      Replace 10+ business tools with one intelligent platform. Built for Global businesses, powered by AI, designed for scale.
                    </p>
                  </div>
 
                  {/* Countdown Timer */}
                  <div ref={timerRef} className="mb-12">
-                   <div className="cred-card p-8 max-w-md mx-auto">
-                     <h3 className="cred-subheading text-2xl mb-6 text-center text-gray-800">
+                   <div className="cred-card p-4 sm:p-6 md:p-8 max-w-sm sm:max-w-md mx-auto">
+                     <h3 className="cred-subheading text-lg sm:text-xl md:text-2xl mb-4 sm:mb-6 text-center text-gray-800">
                        Launching in:
                      </h3>
                      <CountdownTimer />

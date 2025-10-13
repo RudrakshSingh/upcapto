@@ -79,7 +79,7 @@ export default function CountdownTimer() {
         className="relative"
       >
         {/* Main Countdown Container */}
-        <div className="relative w-96 h-64 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl border-2 border-gray-700 overflow-hidden">
+        <div className="relative w-80 sm:w-96 h-56 sm:h-64 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-2xl sm:rounded-3xl shadow-2xl border-2 border-gray-700 overflow-hidden">
           {/* Animated Background */}
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse"></div>
           
@@ -110,7 +110,7 @@ export default function CountdownTimer() {
           <div className="relative z-10 flex flex-col items-center justify-center h-full">
             {/* Days Counter */}
             <motion.div
-              className="text-6xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-2"
+              className="text-4xl sm:text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-2"
               animate={{ 
                 scale: isTicking ? [1, 1.05, 1] : 1,
                 textShadow: isTicking ? "0 0 20px rgba(59, 130, 246, 0.5)" : "none"
@@ -120,12 +120,12 @@ export default function CountdownTimer() {
               {timeLeft.days}
             </motion.div>
             
-            <div className="text-xl font-bold text-gray-300 mb-4">DAYS</div>
+            <div className="text-lg sm:text-xl font-bold text-gray-300 mb-4">DAYS</div>
             
             {/* Business Time Counter */}
-            <div className="flex space-x-3 text-xl font-mono">
+            <div className="flex space-x-2 sm:space-x-3 text-lg sm:text-xl font-mono">
               <motion.div
-                className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 rounded-lg border border-blue-500 text-white font-bold"
+                className="bg-gradient-to-r from-blue-600 to-blue-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-blue-500 text-white font-bold"
                 animate={{ 
                   scale: isTicking ? [1, 1.03, 1] : 1,
                   boxShadow: isTicking ? "0 0 20px rgba(59, 130, 246, 0.4)" : "0 0 10px rgba(59, 130, 246, 0.2)"
@@ -135,9 +135,9 @@ export default function CountdownTimer() {
                 {timeLeft.hours.toString().padStart(2, '0')}
                 <div className="text-xs text-blue-200">HRS</div>
               </motion.div>
-              <span className="text-gray-400 text-2xl">:</span>
+              <span className="text-gray-400 text-xl sm:text-2xl">:</span>
               <motion.div
-                className="bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-3 rounded-lg border border-purple-500 text-white font-bold"
+                className="bg-gradient-to-r from-purple-600 to-purple-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-purple-500 text-white font-bold"
                 animate={{ 
                   scale: isTicking ? [1, 1.03, 1] : 1,
                   boxShadow: isTicking ? "0 0 20px rgba(147, 51, 234, 0.4)" : "0 0 10px rgba(147, 51, 234, 0.2)"
@@ -147,9 +147,9 @@ export default function CountdownTimer() {
                 {timeLeft.minutes.toString().padStart(2, '0')}
                 <div className="text-xs text-purple-200">MIN</div>
               </motion.div>
-              <span className="text-gray-400 text-2xl">:</span>
+              <span className="text-gray-400 text-xl sm:text-2xl">:</span>
               <motion.div
-                className="bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 rounded-lg border border-red-500 text-white font-bold"
+                className="bg-gradient-to-r from-red-600 to-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg border border-red-500 text-white font-bold"
                 animate={{ 
                   scale: isTicking ? [1, 1.05, 1] : 1,
                   boxShadow: isTicking ? "0 0 25px rgba(239, 68, 68, 0.6)" : "0 0 15px rgba(239, 68, 68, 0.3)"
@@ -162,7 +162,7 @@ export default function CountdownTimer() {
             </div>
             
             {/* Progress Bar */}
-            <div className="w-64 h-2 bg-gray-700 rounded-full mt-4 overflow-hidden">
+            <div className="w-48 sm:w-64 h-2 bg-gray-700 rounded-full mt-4 overflow-hidden">
               <motion.div
                 className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full"
                 initial={{ width: "100%" }}
