@@ -1,0 +1,991 @@
+{
+  error: Error: MONGODB_URI environment variable is required
+      at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)
+      at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)
+      at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)
+      at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)
+      at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at 31709 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:952)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5096)
+      at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5131,
+  level: 'error',
+  message: 'unhandledRejection: MONGODB_URI environment variable is required\n' +
+    'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 31709 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5096)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5131',
+  stack: 'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 31709 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5096)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5131',
+  rejection: true,
+  date: 'Sun Oct 12 2025 11:21:47 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 35505,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/rudrakshsingh/Downloads/upcapto',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [
+      '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+      '/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/jest-worker/processChild.js'
+    ],
+    memoryUsage: {
+      rss: 91324416,
+      heapTotal: 39649280,
+      heapUsed: 22467224,
+      external: 22309844,
+      arrayBuffers: 18696369
+    }
+  },
+  os: { loadavg: [ 5.068359375, 8.18359375, 13.06640625 ], uptime: 57199 },
+  trace: [
+    {
+      column: 2853,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r._connect',
+      line: 1,
+      method: '_connect',
+      native: false
+    },
+    {
+      column: 2755,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.connect',
+      line: 1,
+      method: 'connect',
+      native: false
+    },
+    {
+      column: 2599,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'new r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2661,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.getInstance',
+      line: 1,
+      method: 'getInstance',
+      native: false
+    },
+    {
+      column: 8874,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: '2021',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 952,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js',
+      function: '31709',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5096,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js',
+      function: 'r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5131,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    }
+  ],
+  service: 'upcapto-api',
+  environment: 'production',
+  timestamp: '2025-10-12 11:21:47'
+}
+{
+  error: Error: MONGODB_URI environment variable is required
+      at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)
+      at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)
+      at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)
+      at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)
+      at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at 64326 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:952)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2567)
+      at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2602,
+  level: 'error',
+  message: 'unhandledRejection: MONGODB_URI environment variable is required\n' +
+    'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 64326 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2567)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2602',
+  stack: 'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 64326 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2567)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2602',
+  rejection: true,
+  date: 'Sun Oct 12 2025 11:21:47 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 35508,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/rudrakshsingh/Downloads/upcapto',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [
+      '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+      '/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/jest-worker/processChild.js'
+    ],
+    memoryUsage: {
+      rss: 92782592,
+      heapTotal: 39387136,
+      heapUsed: 22596928,
+      external: 22309828,
+      arrayBuffers: 18696353
+    }
+  },
+  os: { loadavg: [ 5.068359375, 8.18359375, 13.06640625 ], uptime: 57199 },
+  trace: [
+    {
+      column: 2853,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r._connect',
+      line: 1,
+      method: '_connect',
+      native: false
+    },
+    {
+      column: 2755,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.connect',
+      line: 1,
+      method: 'connect',
+      native: false
+    },
+    {
+      column: 2599,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'new r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2661,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.getInstance',
+      line: 1,
+      method: 'getInstance',
+      native: false
+    },
+    {
+      column: 8874,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: '2021',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 952,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js',
+      function: '64326',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2567,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js',
+      function: 'r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2602,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    }
+  ],
+  service: 'upcapto-api',
+  environment: 'production',
+  timestamp: '2025-10-12 11:21:47'
+}
+{
+  error: Error: MONGODB_URI environment variable is required
+      at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)
+      at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)
+      at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)
+      at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)
+      at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at 56557 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:952)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5097)
+      at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5132,
+  level: 'error',
+  message: 'unhandledRejection: MONGODB_URI environment variable is required\n' +
+    'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 56557 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5097)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5132',
+  stack: 'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 56557 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5097)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5132',
+  rejection: true,
+  date: 'Sun Oct 12 2025 11:21:47 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 35506,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/rudrakshsingh/Downloads/upcapto',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [
+      '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+      '/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/jest-worker/processChild.js'
+    ],
+    memoryUsage: {
+      rss: 90849280,
+      heapTotal: 37568512,
+      heapUsed: 23369376,
+      external: 22309844,
+      arrayBuffers: 18696369
+    }
+  },
+  os: { loadavg: [ 5.068359375, 8.18359375, 13.06640625 ], uptime: 57199 },
+  trace: [
+    {
+      column: 2853,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r._connect',
+      line: 1,
+      method: '_connect',
+      native: false
+    },
+    {
+      column: 2755,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.connect',
+      line: 1,
+      method: 'connect',
+      native: false
+    },
+    {
+      column: 2599,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'new r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2661,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.getInstance',
+      line: 1,
+      method: 'getInstance',
+      native: false
+    },
+    {
+      column: 8874,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: '2021',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 952,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js',
+      function: '56557',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5097,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js',
+      function: 'r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5132,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    }
+  ],
+  service: 'upcapto-api',
+  environment: 'production',
+  timestamp: '2025-10-12 11:21:47'
+}
+{
+  error: Error: MONGODB_URI environment variable is required
+      at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)
+      at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)
+      at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)
+      at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)
+      at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at 64326 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:952)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2567)
+      at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2602,
+  level: 'error',
+  message: 'unhandledRejection: MONGODB_URI environment variable is required\n' +
+    'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 64326 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2567)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2602',
+  stack: 'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 64326 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2567)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js:1:2602',
+  rejection: true,
+  date: 'Sun Oct 12 2025 11:23:15 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 36998,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/rudrakshsingh/Downloads/upcapto',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [
+      '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+      '/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/jest-worker/processChild.js'
+    ],
+    memoryUsage: {
+      rss: 92454912,
+      heapTotal: 39124992,
+      heapUsed: 22685176,
+      external: 22309828,
+      arrayBuffers: 18696353
+    }
+  },
+  os: {
+    loadavg: [ 5.38134765625, 7.74755859375, 12.4482421875 ],
+    uptime: 57287
+  },
+  trace: [
+    {
+      column: 2853,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r._connect',
+      line: 1,
+      method: '_connect',
+      native: false
+    },
+    {
+      column: 2755,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.connect',
+      line: 1,
+      method: 'connect',
+      native: false
+    },
+    {
+      column: 2599,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'new r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2661,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.getInstance',
+      line: 1,
+      method: 'getInstance',
+      native: false
+    },
+    {
+      column: 8874,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: '2021',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 952,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js',
+      function: '64326',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2567,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js',
+      function: 'r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2602,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/health/route.js',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    }
+  ],
+  service: 'upcapto-api',
+  environment: 'production',
+  timestamp: '2025-10-12 11:23:15'
+}
+{
+  error: Error: MONGODB_URI environment variable is required
+      at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)
+      at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)
+      at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)
+      at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)
+      at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at 31709 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:952)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5096)
+      at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5131,
+  level: 'error',
+  message: 'unhandledRejection: MONGODB_URI environment variable is required\n' +
+    'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 31709 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5096)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5131',
+  stack: 'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 31709 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5096)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js:1:5131',
+  rejection: true,
+  date: 'Sun Oct 12 2025 11:23:15 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 36995,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/rudrakshsingh/Downloads/upcapto',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [
+      '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+      '/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/jest-worker/processChild.js'
+    ],
+    memoryUsage: {
+      rss: 92667904,
+      heapTotal: 39649280,
+      heapUsed: 22160008,
+      external: 22309844,
+      arrayBuffers: 18696369
+    }
+  },
+  os: {
+    loadavg: [ 5.38134765625, 7.74755859375, 12.4482421875 ],
+    uptime: 57287
+  },
+  trace: [
+    {
+      column: 2853,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r._connect',
+      line: 1,
+      method: '_connect',
+      native: false
+    },
+    {
+      column: 2755,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.connect',
+      line: 1,
+      method: 'connect',
+      native: false
+    },
+    {
+      column: 2599,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'new r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2661,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.getInstance',
+      line: 1,
+      method: 'getInstance',
+      native: false
+    },
+    {
+      column: 8874,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: '2021',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 952,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js',
+      function: '31709',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5096,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js',
+      function: 'r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5131,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/contacts/route.js',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    }
+  ],
+  service: 'upcapto-api',
+  environment: 'production',
+  timestamp: '2025-10-12 11:23:15'
+}
+{
+  error: Error: MONGODB_URI environment variable is required
+      at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)
+      at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)
+      at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)
+      at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)
+      at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at 56557 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:952)
+      at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)
+      at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5097)
+      at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5132,
+  level: 'error',
+  message: 'unhandledRejection: MONGODB_URI environment variable is required\n' +
+    'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 56557 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5097)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5132',
+  stack: 'Error: MONGODB_URI environment variable is required\n' +
+    '    at r._connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2853)\n' +
+    '    at r.connect (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2755)\n' +
+    '    at new r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2599)\n' +
+    '    at r.getInstance (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:2661)\n' +
+    '    at 2021 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js:1:8874)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at 56557 (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:952)\n' +
+    '    at t (/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js:1:128)\n' +
+    '    at r (/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5097)\n' +
+    '    at /Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js:1:5132',
+  rejection: true,
+  date: 'Sun Oct 12 2025 11:23:15 GMT+0530 (India Standard Time)',
+  process: {
+    pid: 36996,
+    uid: 501,
+    gid: 20,
+    cwd: '/Users/rudrakshsingh/Downloads/upcapto',
+    execPath: '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+    version: 'v24.8.0',
+    argv: [
+      '/opt/homebrew/Cellar/node/24.8.0/bin/node',
+      '/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/jest-worker/processChild.js'
+    ],
+    memoryUsage: {
+      rss: 90226688,
+      heapTotal: 37830656,
+      heapUsed: 23419512,
+      external: 22309844,
+      arrayBuffers: 18696369
+    }
+  },
+  os: {
+    loadavg: [ 5.38134765625, 7.74755859375, 12.4482421875 ],
+    uptime: 57287
+  },
+  trace: [
+    {
+      column: 2853,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r._connect',
+      line: 1,
+      method: '_connect',
+      native: false
+    },
+    {
+      column: 2755,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.connect',
+      line: 1,
+      method: 'connect',
+      native: false
+    },
+    {
+      column: 2599,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'new r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 2661,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: 'r.getInstance',
+      line: 1,
+      method: 'getInstance',
+      native: false
+    },
+    {
+      column: 8874,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/chunks/918.js',
+      function: '2021',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 952,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js',
+      function: '56557',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 128,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/webpack-runtime.js',
+      function: 't',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5097,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js',
+      function: 'r',
+      line: 1,
+      method: null,
+      native: false
+    },
+    {
+      column: 5132,
+      file: '/Users/rudrakshsingh/Downloads/upcapto/.next/server/app/api/admin/waitlist/route.js',
+      function: null,
+      line: 1,
+      method: null,
+      native: false
+    }
+  ],
+  service: 'upcapto-api',
+  environment: 'production',
+  timestamp: '2025-10-12 11:23:15'
+}
+{
+  service: 'upcapto-api',
+  environment: 'development',
+  ip: '::1',
+  requestId: 'chzboaavd',
+  dbHealth: false,
+  envCheck: {
+    mongodb: false,
+    sendgrid: false,
+    whatsapp: false,
+    nodeEnv: 'development'
+  },
+  method: 'GET',
+  url: '/api/health',
+  statusCode: 503,
+  responseTime: 2,
+  type: 'http_request',
+  timestamp: '2025-10-12 19:47:10',
+  pid: 47597,
+  hostname: 'Rudrakshs-MacBook-Pro.local',
+  level: 'info',
+  message: 'HTTP Request'
+}
+{
+  service: 'upcapto-api',
+  environment: 'development',
+  ip: '::1',
+  requestId: 'ckjlmr9c4',
+  dbHealth: false,
+  envCheck: {
+    mongodb: false,
+    sendgrid: false,
+    whatsapp: false,
+    nodeEnv: 'development'
+  },
+  method: 'GET',
+  url: '/api/health',
+  statusCode: 503,
+  responseTime: 0,
+  type: 'http_request',
+  timestamp: '2025-10-12 19:48:00',
+  pid: 47597,
+  hostname: 'Rudrakshs-MacBook-Pro.local',
+  level: 'info',
+  message: 'HTTP Request'
+}
+{
+  service: 'upcapto-api',
+  environment: 'development',
+  error: Error: Database not available - MONGODB_URI environment variable may not be set
+      at MongoDBService.ensureConnection (webpack-internal:///(rsc)/./lib/mongodb.ts:108:19)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async MongoDBService.addWaitlistEntry (webpack-internal:///(rsc)/./lib/mongodb.ts:113:9)
+      at async POST (webpack-internal:///(rsc)/./app/api/waitlist/route.ts:111:31)
+      at async /Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+      at async eT.execute (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+      at async eT.handle (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+      at async doRender (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1366:42)
+      at async cacheEntry.responseCache.get.routeKind (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1588:28)
+      at async DevServer.renderToResponseWithComponentsImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1496:28)
+      at async DevServer.renderPageComponent (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1924:24)
+      at async DevServer.renderToResponseImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1962:32)
+      at async DevServer.pipeImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:922:25)
+      at async NextNodeServer.handleCatchallRenderRequest (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/next-server.js:272:17)
+      at async DevServer.handleRequestImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:818:17)
+      at async /Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+      at async Span.traceAsyncFn (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/trace/trace.js:154:20)
+      at async DevServer.handleRequest (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+      at async invokeRender (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/router-server.js:179:21)
+      at async handleRequest (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/router-server.js:359:24)
+      at async requestHandlerImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/router-server.js:383:13)
+      at async Server.requestListener (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/start-server.js:141:13),
+  ip: '::1',
+  userAgent: 'curl/8.7.1',
+  requestId: 'iky833n8i',
+  responseTime: 2,
+  timestamp: '2025-10-13 13:18:24',
+  pid: 68983,
+  hostname: 'Rudrakshs-MacBook-Pro.local',
+  level: 'error',
+  message: 'Waitlist submission error'
+}
+{
+  service: 'upcapto-api',
+  environment: 'development',
+  error: Error: Database not available - MONGODB_URI environment variable may not be set
+      at MongoDBService.ensureConnection (webpack-internal:///(rsc)/./lib/mongodb.ts:108:19)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async MongoDBService.addWaitlistEntry (webpack-internal:///(rsc)/./lib/mongodb.ts:113:9)
+      at async POST (webpack-internal:///(rsc)/./app/api/waitlist/route.ts:111:31)
+      at async /Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:57228
+      at async eT.execute (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:46851)
+      at async eT.handle (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/compiled/next-server/app-route.runtime.dev.js:6:58760)
+      at async doRender (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1366:42)
+      at async cacheEntry.responseCache.get.routeKind (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1588:28)
+      at async DevServer.renderToResponseWithComponentsImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1496:28)
+      at async DevServer.renderPageComponent (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1924:24)
+      at async DevServer.renderToResponseImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:1962:32)
+      at async DevServer.pipeImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:922:25)
+      at async NextNodeServer.handleCatchallRenderRequest (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/next-server.js:272:17)
+      at async DevServer.handleRequestImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/base-server.js:818:17)
+      at async /Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/dev/next-dev-server.js:339:20
+      at async Span.traceAsyncFn (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/trace/trace.js:154:20)
+      at async DevServer.handleRequest (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/dev/next-dev-server.js:336:24)
+      at async invokeRender (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/router-server.js:179:21)
+      at async handleRequest (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/router-server.js:359:24)
+      at async requestHandlerImpl (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/router-server.js:383:13)
+      at async Server.requestListener (/Users/rudrakshsingh/Downloads/upcapto/node_modules/next/dist/server/lib/start-server.js:141:13),
+  ip: '::1',
+  userAgent: 'curl/8.7.1',
+  requestId: '4h7kpssdb',
+  responseTime: 2,
+  timestamp: '2025-10-13 13:19:51',
+  pid: 70537,
+  hostname: 'Rudrakshs-MacBook-Pro.local',
+  level: 'error',
+  message: 'Waitlist submission error'
+}
