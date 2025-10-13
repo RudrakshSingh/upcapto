@@ -8,68 +8,103 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Monochrome Color Palette
-        'mono': {
-          black: '#1A1A1A',
+        // Vibrant Gradient Color Palette
+        'brand': {
+          primary: '#6366F1',      // Indigo - Primary brand color
+          secondary: '#8B5CF6',    // Purple - Secondary actions
+          accent: '#06B6D4',        // Cyan - Success/CTA
+          warning: '#F59E0B',      // Amber - Warnings
+          error: '#EF4444',        // Red - Errors
+          dark: '#1E293B',         // Dark Slate - Text
+          light: '#F8FAFC',        // Light Gray - Backgrounds
+        },
+        'gradient': {
+          primary: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          secondary: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+          accent: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+          warm: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+          cool: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+          dark: 'linear-gradient(135deg, #2c3e50 0%, #34495e 100%)',
+        },
+        'neutral': {
+          50: '#F8FAFC',
+          100: '#F1F5F9',
+          200: '#E2E8F0',
+          300: '#CBD5E1',
+          400: '#94A3B8',
+          500: '#64748B',
+          600: '#475569',
+          700: '#334155',
+          800: '#1E293B',
+          900: '#0F172A',
+        },
+        // Legacy colors for compatibility
+        'cred': {
+          black: '#1E293B',
           white: '#FFFFFF',
           gray: {
-            50: '#FAFAFA',
-            100: '#F5F5F5',
-            200: '#E5E5E5',
-            300: '#CCCCCC',
-            400: '#999999',
-            500: '#666666',
-            600: '#4D4D4D',
-            700: '#333333',
-            800: '#2A2A2A',
-            900: '#1A1A1A',
+            50: '#F8FAFC',
+            100: '#F1F5F9',
+            200: '#E2E8F0',
+            300: '#CBD5E1',
+            400: '#94A3B8',
+            500: '#64748B',
+            600: '#475569',
+            700: '#334155',
+            800: '#1E293B',
+            900: '#0F172A',
           },
         },
         // Legacy colors for compatibility
         'primary': {
-          navy: '#1A1A1A',
+          navy: '#000000',
           'navy-light': '#333333',
-          'navy-dark': '#1A1A1A',
+          'navy-dark': '#000000',
         },
         'accent': {
-          blue: '#666666',
-          'blue-dark': '#4D4D4D',
-          'blue-light': '#999999',
+          blue: '#000000',
+          'blue-dark': '#000000',
+          'blue-light': '#333333',
         },
         'secondary': {
-          teal: '#666666',
-          'teal-dark': '#4D4D4D',
-          'teal-light': '#999999',
+          teal: '#6C757D',
+          'teal-dark': '#495057',
+          'teal-light': '#ADB5BD',
         },
         'background': {
           white: '#FFFFFF',
-          'soft-white': '#FAFAFA',
+          'soft-white': '#F8F9FA',
         },
-        'glass': 'rgba(255, 255, 255, 0.9)',
+        'glass': 'rgba(255, 255, 255, 0.95)',
         'glass-border': 'rgba(0, 0, 0, 0.1)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'subtle-gradient': 'linear-gradient(135deg, #FAFAFA, #F5F5F5)',
-        'mono-gradient': 'linear-gradient(135deg, #1A1A1A, #333333)',
+        'brand-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        'accent-gradient': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+        'warm-gradient': 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+        'cool-gradient': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
+        'hero-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
+        'cred-gradient': 'linear-gradient(135deg, #F8F9FA, #FFFFFF)',
+        'cred-dark': 'linear-gradient(135deg, #000000, #333333)',
       },
       animation: {
-        'fade-in': 'fadeIn 0.6s ease-out',
-        'slide-up': 'slideUp 0.6s ease-out',
-        'scale-in': 'scaleIn 0.6s ease-out',
+        'cred-fade-in': 'credFadeIn 0.4s ease-out',
+        'cred-slide-up': 'credSlideUp 0.5s ease-out',
+        'cred-scale-in': 'credScaleIn 0.3s ease-out',
       },
       keyframes: {
-        fadeIn: {
-          '0%': { opacity: '0' },
-          '100%': { opacity: '1' },
+        credFadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        slideUp: {
+        credSlideUp: {
           '0%': { transform: 'translateY(20px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
-        scaleIn: {
-          '0%': { transform: 'scale(0.95)', opacity: '0' },
+        credScaleIn: {
+          '0%': { transform: 'scale(0.98)', opacity: '0' },
           '100%': { transform: 'scale(1)', opacity: '1' },
         },
       },
@@ -90,9 +125,9 @@ module.exports = {
         'mono': ['JetBrains Mono', 'monospace'],
       },
       boxShadow: {
-        'subtle': '0 2px 8px rgba(0, 0, 0, 0.1)',
-        'subtle-lg': '0 4px 16px rgba(0, 0, 0, 0.15)',
-        'subtle-xl': '0 8px 24px rgba(0, 0, 0, 0.2)',
+        'cred': '0 1px 3px rgba(0, 0, 0, 0.1)',
+        'cred-lg': '0 4px 12px rgba(0, 0, 0, 0.15)',
+        'cred-xl': '0 8px 24px rgba(0, 0, 0, 0.2)',
       },
     },
   },

@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useHoverAnimation } from '@/lib/useCredAnimations'
 
 interface TimeLeft {
   days: number
@@ -14,18 +13,63 @@ interface TimeLeft {
 export default function CountdownTimer() {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({ days: 90, hours: 0, minutes: 0, seconds: 0 })
   const [isUrgent, setIsUrgent] = useState(false)
-  
-  // CRED-style hover animations
-  const timerRef = useHoverAnimation('card')
+  const [isTicking, setIsTicking] = useState(false)
+
+  // Classic Clock Ticking Sound
+  const playTickingSound = () => {
+    try {
+      // Create or resume audio context
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
+      
+      // Resume context if suspended (required for user interaction)
+      if (audioContext.state === 'suspended') {
+        audioContext.resume()
+      }
+      
+      const oscillator = audioContext.createOscillator()
+      const gainNode = audioContext.createGain()
+      
+      oscillator.connect(gainNode)
+      gainNode.connect(audioContext.destination)
+      
+      // Classic clock tick sound - sharp and precise
+      oscillator.type = 'sine'
+      oscillator.frequency.setValueAtTime(2000, audioContext.currentTime)
+      oscillator.frequency.exponentialRampToValueAtTime(1000, audioContext.currentTime + 0.05)
+      
+      // Quick, sharp tick with higher volume
+      gainNode.gain.setValueAtTime(0, audioContext.currentTime)
+      gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01)
+      gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1)
+      
+      oscillator.start(audioContext.currentTime)
+      oscillator.stop(audioContext.currentTime + 0.1)
+      
+      console.log('Ticking sound played') // Debug log
+    } catch (error) {
+      console.log('Audio not supported:', error)
+    }
+  }
 
   useEffect(() => {
+    // Enable audio on first user interaction
+    const enableAudio = () => {
+      const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
+      if (audioContext.state === 'suspended') {
+        audioContext.resume()
+      }
+    }
+    
+    // Add click listener to enable audio
+    document.addEventListener('click', enableAudio, { once: true })
+    document.addEventListener('touchstart', enableAudio, { once: true })
+    
     // Set a fixed launch date 90 days from when component mounts
     const launchDate = new Date(Date.now() + (90 * 24 * 60 * 60 * 1000)).getTime()
     
     const calculateTimeLeft = () => {
       const now = new Date().getTime()
       const difference = launchDate - now
-
 
       if (difference > 0) {
         const days = Math.floor(difference / (1000 * 60 * 60 * 24))
@@ -46,154 +90,218 @@ export default function CountdownTimer() {
 
     const timer = setInterval(() => {
       const newTime = calculateTimeLeft()
+      
+      // Play ticking sound every second
+      playTickingSound()
+      setIsTicking(true)
+      setTimeout(() => setIsTicking(false), 200)
+      
       setTimeLeft(newTime)
       
       // Make it urgent when less than 7 days left
-      setIsUrgent(newTime.days < 7)
+      if (newTime.days < 7 && !isUrgent) {
+        setIsUrgent(true)
+      } else if (newTime.days >= 7 && isUrgent) {
+        setIsUrgent(false)
+      }
+
+      if (newTime.days === 0 && newTime.hours === 0 && newTime.minutes === 0 && newTime.seconds === 0) {
+        clearInterval(timer)
+      }
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [isUrgent])
 
-  const timeUnits = [
-    { label: 'Days', value: timeLeft.days, color: 'from-red-500 to-red-700' },
-    { label: 'Hours', value: timeLeft.hours, color: 'from-orange-500 to-red-600' },
-    { label: 'Minutes', value: timeLeft.minutes, color: 'from-yellow-500 to-orange-500' },
-    { label: 'Seconds', value: timeLeft.seconds, color: 'from-green-500 to-yellow-500' }
-  ]
+  // No need for clock hands rotation anymore
 
   return (
-    <div ref={timerRef} className="relative">
-      {/* Pulsing background */}
+    <div className="relative flex flex-col items-center space-y-8">
+      {/* Epic Countdown Display */}
       <motion.div
-        animate={{
-          scale: isUrgent ? [1, 1.05, 1] : [1, 1.02, 1],
-          opacity: isUrgent ? [0.3, 0.6, 0.3] : [0.1, 0.3, 0.1]
-        }}
-        transition={{
-          duration: isUrgent ? 0.5 : 2,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-orange-500/20 rounded-3xl blur-xl"
-      />
-      
-      <div className="relative flex justify-center gap-3 md:gap-6">
-        {timeUnits.map((unit, index) => (
-          <motion.div
-            key={unit.label}
-            initial={{ scale: 0, rotate: -180, opacity: 0 }}
-            animate={{ 
-              scale: isUrgent ? [1, 1.1, 1] : 1,
-              rotate: 0,
-              opacity: 1
-            }}
-            transition={{ 
-              delay: index * 0.1,
-              duration: 0.6,
-              type: "spring",
-              stiffness: 200,
-              damping: 15
-            }}
-            className="text-center relative"
-          >
-            {/* Glowing effect */}
-            <motion.div
-              animate={{
-                boxShadow: isUrgent 
-                  ? [
-                      "0 0 20px rgba(239, 68, 68, 0.5)",
-                      "0 0 40px rgba(239, 68, 68, 0.8)",
-                      "0 0 20px rgba(239, 68, 68, 0.5)"
-                    ]
-                  : [
-                      "0 0 10px rgba(59, 130, 246, 0.3)",
-                      "0 0 20px rgba(59, 130, 246, 0.5)",
-                      "0 0 10px rgba(59, 130, 246, 0.3)"
-                    ]
-              }}
-              transition={{
-                duration: isUrgent ? 0.8 : 2,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-              className={`bg-gradient-to-br ${unit.color} backdrop-blur-md bg-white/10 text-white rounded-2xl p-4 md:p-6 min-w-[70px] md:min-w-[90px] shadow-2xl border border-white/30`}
-            >
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={unit.value}
-                  initial={{ y: 20, opacity: 0, scale: 0.8 }}
-                  animate={{ y: 0, opacity: 1, scale: 1 }}
-                  exit={{ y: -20, opacity: 0, scale: 0.8 }}
-                  transition={{ 
-                    duration: 0.3,
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 20
-                  }}
-                  className="text-2xl md:text-4xl font-black tracking-tight font-display"
-                >
-                  {unit.value.toString().padStart(2, '0')}
-                </motion.div>
-              </AnimatePresence>
-              
-              <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1, type: "spring", stiffness: 100 }}
+        className="relative"
+      >
+        {/* Main Countdown Container */}
+        <div className="relative w-96 h-64 bg-gradient-to-br from-gray-900 via-gray-800 to-black rounded-3xl shadow-2xl border-2 border-gray-700 overflow-hidden">
+          {/* Animated Background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 via-purple-600/20 to-pink-600/20 animate-pulse"></div>
+          
+          {/* Matrix-style Rain Effect */}
+          <div className="absolute inset-0 opacity-20">
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                className="absolute w-1 h-8 bg-green-400"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `${Math.random() * 100}%`
+                }}
                 animate={{
-                  color: isUrgent ? ["#ffffff", "#ffeb3b", "#ffffff"] : "#ffffff"
+                  y: [0, 300],
+                  opacity: [0, 1, 0]
                 }}
                 transition={{
-                  duration: isUrgent ? 0.5 : 2,
+                  duration: 2,
                   repeat: Infinity,
-                  ease: "easeInOut"
+                  delay: Math.random() * 2
                 }}
-                className="text-xs md:text-sm font-bold opacity-90 mt-1 font-subheading"
-              >
-                {unit.label}
-              </motion.div>
+              />
+            ))}
+          </div>
+          
+          {/* Time Display */}
+          <div className="relative z-10 flex flex-col items-center justify-center h-full">
+            {/* Days Counter */}
+            <motion.div
+              className="text-6xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-2"
+              animate={{ 
+                scale: isTicking ? [1, 1.05, 1] : 1,
+                textShadow: isTicking ? "0 0 20px rgba(59, 130, 246, 0.5)" : "none"
+              }}
+              transition={{ duration: 0.3 }}
+            >
+              {timeLeft.days}
             </motion.div>
             
-            {/* Urgent warning */}
-            {isUrgent && unit.label === 'Days' && unit.value < 7 && (
+            <div className="text-xl font-bold text-gray-300 mb-4">DAYS</div>
+            
+            {/* Business Time Counter */}
+            <div className="flex space-x-3 text-xl font-mono">
               <motion.div
-                initial={{ scale: 0, opacity: 0 }}
+                className="bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 rounded-lg border border-blue-500 text-white font-bold"
                 animate={{ 
-                  scale: [1, 1.2, 1],
-                  opacity: [0.8, 1, 0.8]
+                  scale: isTicking ? [1, 1.03, 1] : 1,
+                  boxShadow: isTicking ? "0 0 20px rgba(59, 130, 246, 0.4)" : "0 0 10px rgba(59, 130, 246, 0.2)"
                 }}
-                transition={{
-                  duration: 0.5,
+                transition={{ duration: 0.2 }}
+              >
+                {timeLeft.hours.toString().padStart(2, '0')}
+                <div className="text-xs text-blue-200">HRS</div>
+              </motion.div>
+              <span className="text-gray-400 text-2xl">:</span>
+              <motion.div
+                className="bg-gradient-to-r from-purple-600 to-purple-700 px-4 py-3 rounded-lg border border-purple-500 text-white font-bold"
+                animate={{ 
+                  scale: isTicking ? [1, 1.03, 1] : 1,
+                  boxShadow: isTicking ? "0 0 20px rgba(147, 51, 234, 0.4)" : "0 0 10px rgba(147, 51, 234, 0.2)"
+                }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+              >
+                {timeLeft.minutes.toString().padStart(2, '0')}
+                <div className="text-xs text-purple-200">MIN</div>
+              </motion.div>
+              <span className="text-gray-400 text-2xl">:</span>
+              <motion.div
+                className="bg-gradient-to-r from-red-600 to-red-700 px-4 py-3 rounded-lg border border-red-500 text-white font-bold"
+                animate={{ 
+                  scale: isTicking ? [1, 1.05, 1] : 1,
+                  boxShadow: isTicking ? "0 0 25px rgba(239, 68, 68, 0.6)" : "0 0 15px rgba(239, 68, 68, 0.3)"
+                }}
+                transition={{ duration: 0.1 }}
+              >
+                {timeLeft.seconds.toString().padStart(2, '0')}
+                <div className="text-xs text-red-200">SEC</div>
+              </motion.div>
+            </div>
+            
+            {/* Progress Bar */}
+            <div className="w-64 h-2 bg-gray-700 rounded-full mt-4 overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-500 rounded-full"
+                initial={{ width: "100%" }}
+                animate={{ 
+                  width: `${(timeLeft.days / 90) * 100}%`,
+                  boxShadow: isTicking ? "0 0 10px rgba(59, 130, 246, 0.5)" : "none"
+                }}
+                transition={{ duration: 0.5 }}
+              />
+            </div>
+          </div>
+          
+          {/* Corner Decorations */}
+          <div className="absolute top-4 left-4 w-3 h-3 bg-cyan-400 rounded-full animate-ping"></div>
+          <div className="absolute top-4 right-4 w-3 h-3 bg-purple-400 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+          <div className="absolute bottom-4 left-4 w-3 h-3 bg-blue-400 rounded-full animate-ping" style={{ animationDelay: '1s' }}></div>
+          <div className="absolute bottom-4 right-4 w-3 h-3 bg-pink-400 rounded-full animate-ping" style={{ animationDelay: '1.5s' }}></div>
+        </div>
+      </motion.div>
+      
+      {/* Business Status Message */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="text-center"
+      >
+        <div className="text-2xl font-bold text-gray-800 mb-2">
+          🚀 Business Launch Countdown
+        </div>
+        <div className="text-lg text-gray-600 mb-4">
+          Join 10,000+ businesses already waiting for Etelios
+        </div>
+        
+        {/* Business Stats */}
+        <div className="flex justify-center space-x-8 text-sm text-gray-500">
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span>AI-Powered</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+            <span>Enterprise Ready</span>
+          </div>
+          <div className="flex items-center space-x-2">
+            <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+            <span>Global Scale</span>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Urgent Message */}
+      {isUrgent && (
+        <motion.div
+          initial={{ opacity: 0, y: 30, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ 
+            duration: 0.8,
+            type: "spring",
+            stiffness: 100,
+            damping: 15
+          }}
+          className="mt-8 text-center"
+        >
+          <div className="relative bg-gradient-to-r from-red-50 via-orange-50 to-yellow-50 border-2 border-red-300 rounded-2xl p-6 shadow-2xl overflow-hidden">
+            {/* Animated background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-red-400/10 to-orange-400/10 animate-pulse"></div>
+            
+            {/* Content */}
+            <div className="relative">
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                  rotate: [0, 1, -1, 0]
+                }}
+                transition={{ 
+                  duration: 2,
                   repeat: Infinity,
                   ease: "easeInOut"
                 }}
-                className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full animate-pulse"
+                className="text-2xl mb-2"
               >
-                URGENT!
+                ⚡
               </motion.div>
-            )}
-          </motion.div>
-        ))}
-      </div>
-      
-      {/* Funny urgent message */}
-      {isUrgent && (
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          className="mt-6 text-center"
-        >
-          <motion.p
-            animate={{
-              color: ["#ef4444", "#f97316", "#ef4444"]
-            }}
-            transition={{
-              duration: 0.8,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="text-lg font-bold"
-          >
-            GET SUPER PUMPED! Your empire is waiting!
-          </motion.p>
+              <p className="text-gray-800 font-bold text-lg md:text-xl">
+                ⚡ Limited Early Access! Secure your business advantage before public launch!
+              </p>
+            </div>
+            
+            {/* Decorative elements */}
+            <div className="absolute top-2 left-2 w-3 h-3 bg-red-400 rounded-full animate-ping"></div>
+            <div className="absolute bottom-2 right-2 w-3 h-3 bg-orange-400 rounded-full animate-ping" style={{ animationDelay: '0.5s' }}></div>
+          </div>
         </motion.div>
       )}
     </div>

@@ -108,136 +108,46 @@ export default function HighImpactCTA() {
     setShowPopup(true)
   }, [])
 
-  return (
-    <section ref={containerRef} className="relative py-20 bg-mono-gray-50 overflow-hidden">
-      {/* Subtle Background Elements */}
-      <div className="absolute inset-0 bg-subtle-gradient"></div>
-      <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-mono-gray-200/20 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-mono-gray-300/20 rounded-full blur-3xl"></div>
-      </div>
+         return (
+           <section ref={containerRef} className="relative py-24 bg-white overflow-hidden">
+             {/* Clean white background */}
 
-      {/* Professional Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating Geometric Shapes */}
-        <motion.div
-          animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          className="absolute top-1/4 left-1/4 w-6 h-6 bg-mono-gray-300/30 rounded-full opacity-20"
-        />
-        
-        <motion.div
-          animate={{
-            y: [0, -15, 0],
-            rotate: [0, -5, 0]
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 1
-          }}
-          className="absolute top-1/3 right-1/4 w-4 h-4 bg-mono-gray-400/30 rounded-lg opacity-20"
-        />
-
-        <motion.div
-          animate={{
-            y: [0, -25, 0],
-            rotate: [0, 10, 0]
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-mono-gray-400/30 rounded-full opacity-20"
-        />
-
-        <motion.div
-          animate={{
-            y: [0, -18, 0],
-            rotate: [0, -8, 0]
-          }}
-          transition={{
-            duration: 3.5,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 0.5
-          }}
-          className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-mono-gray-300/30 rounded-lg opacity-20"
-        />
-
-        {/* Floating Particles */}
-        {[...Array(8)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              y: [0, -30, 0],
-              x: [0, Math.random() * 20 - 10, 0],
-              opacity: [0.3, 0.8, 0.3]
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-              delay: Math.random() * 2
-            }}
-            className="absolute w-1 h-1 bg-mono-gray-400/40 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`
-            }}
-          />
-        ))}
-      </div>
+      {/* Clean CRED-style background - no animations */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div ref={heroRef} className="text-center mb-16">
-          <div
-            ref={headingRef}
-            className="mb-12 mt-8"
-          >
-            <h1 className="text-5xl md:text-7xl font-black text-mono-black mb-6 font-display">
-              GET
-              <span className="text-mono-gray-600">
-                {' '}SUPER PUMPED
-              </span>
-              <br />
-              WITH ETELIOS!
-            </h1>
-          </div>
+                 <div
+                   ref={headingRef}
+                   className="mb-12 mt-8"
+                 >
+                   <h1 className="cred-heading text-5xl md:text-7xl mb-6 text-gray-900">
+                     TRANSFORM YOUR
+                     <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                       {' '}BUSINESS
+                     </span>
+                     <br />
+                     WITH ETELIOS!
+                   </h1>
+                 </div>
           
-          <div ref={descriptionRef}>
-            <p className="text-xl md:text-2xl text-mono-gray-600 max-w-3xl mx-auto mb-8 font-body font-medium">
-              Replace 10+ business tools with one intelligent platform. Built for Global businesses, powered by AI, designed for scale.
-            </p>
-          </div>
+                 <div ref={descriptionRef}>
+                   <p className="cred-body text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-gray-700">
+                     Replace 10+ business tools with one intelligent platform. Built for Global businesses, powered by AI, designed for scale.
+                   </p>
+                 </div>
 
-          {/* Countdown Timer */}
-          <div ref={timerRef} className="mb-12">
-            <div 
-              className="rounded-2xl p-8 shadow-subtle-lg relative overflow-hidden bg-white border border-mono-gray-200"
-            >
-              
-              {/* Glass reflection */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-2xl" />
-              <h3 className="text-2xl font-bold text-mono-black mb-6">
-                Launching in:
-              </h3>
-              <CountdownTimer />
-            </div>
-          </div>
+                 {/* Countdown Timer */}
+                 <div ref={timerRef} className="mb-12">
+                   <div className="cred-card p-8 max-w-md mx-auto">
+                     <h3 className="cred-subheading text-2xl mb-6 text-center text-gray-800">
+                       Launching in:
+                     </h3>
+                     <CountdownTimer />
+                   </div>
+                 </div>
         </div>
 
-        {/* Signup Form */}
+        {/* CRED-style Signup Form */}
         <div
           id="signup-form"
           ref={formRef}
@@ -248,19 +158,19 @@ export default function HighImpactCTA() {
 
         {/* Authentic Messaging */}
         <div className="mt-16 text-center">
-          <p className="text-cred-gray-500 mb-6">Be among the first to experience the future</p>
-          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12 opacity-80">
+          <p className="text-gray-600 mb-6">Be among the first to experience the future</p>
+          <div className="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-12">
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-cred-blue-500 rounded-full"></div>
-              <span className="text-lg font-semibold text-cred-gray-600">Early Access</span>
+              <div className="w-2 h-2 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full"></div>
+              <span className="text-lg font-semibold text-gray-800">Early Access</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-cred-purple-500 rounded-full"></div>
-              <span className="text-lg font-semibold text-cred-gray-600">Lightning Fast</span>
+              <div className="w-2 h-2 bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"></div>
+              <span className="text-lg font-semibold text-gray-800">Lightning Fast</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-cred-green-500 rounded-full"></div>
-              <span className="text-lg font-semibold text-cred-gray-600">Future Ready</span>
+              <div className="w-2 h-2 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full"></div>
+              <span className="text-lg font-semibold text-gray-800">Future Ready</span>
             </div>
           </div>
         </div>
@@ -278,8 +188,8 @@ export default function HighImpactCTA() {
           }}
           className="fixed bottom-4 left-4 z-50"
         >
-          <div className="bg-black/80 backdrop-blur-sm text-white px-3 py-2 rounded-lg shadow-lg flex items-center space-x-2 max-w-xs">
-            <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-3 py-2 rounded-lg shadow-lg flex items-center space-x-2 max-w-xs">
+            <div className="w-1.5 h-1.5 bg-yellow-300 rounded-full animate-pulse"></div>
             <div className="flex-1">
               <p className="text-xs font-medium">
                 {recentJoiners[0]?.name} from {recentJoiners[0]?.location} joined!

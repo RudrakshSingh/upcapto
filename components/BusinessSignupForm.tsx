@@ -81,12 +81,12 @@ export default function BusinessSignupForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-2xl p-8 text-center shadow-subtle-lg border border-mono-gray-200">
-        <div className="w-16 h-16 bg-mono-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-mono-gray-400 border-t-transparent rounded-full animate-spin"></div>
+      <div className="cred-card p-8 text-center">
+        <div className="w-16 h-16 bg-cred-gray-100 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-cred-gray-400 border-t-transparent rounded-full animate-spin"></div>
         </div>
-        <h3 className="text-2xl font-bold text-mono-black mb-2">You're In!</h3>
-        <p className="text-mono-gray-600">We'll notify you when we launch.</p>
+        <h3 className="cred-subheading text-2xl mb-2">You're In!</h3>
+        <p className="cred-body">We'll notify you when we launch.</p>
       </div>
     )
   }
@@ -94,11 +94,11 @@ export default function BusinessSignupForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-2xl p-8 shadow-subtle-lg border border-mono-gray-200"
+      className="cred-card p-8"
     >
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-semibold text-mono-gray-700 mb-2">
+          <label className="cred-label">
             Full Name
           </label>
           <input
@@ -106,13 +106,13 @@ export default function BusinessSignupForm() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
+            className="cred-input w-full"
             placeholder="Enter your full name"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
+          <label className="cred-label">
             Business Email
           </label>
           <input
@@ -120,13 +120,13 @@ export default function BusinessSignupForm() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
+            className="cred-input w-full"
             placeholder="Enter your business email"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
+          <label className="cred-label">
             Mobile Number
           </label>
           <input
@@ -134,20 +134,20 @@ export default function BusinessSignupForm() {
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
+            className="cred-input w-full"
             placeholder="Enter your mobile number"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
+          <label className="cred-label">
             Business Size
           </label>
           <select
             required
             value={formData.businessSize}
             onChange={(e) => setFormData({ ...formData, businessSize: e.target.value })}
-            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
+            className="cred-input w-full"
           >
             <option value="">Select business size</option>
             {businessSizes.map((size) => (
@@ -159,14 +159,14 @@ export default function BusinessSignupForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
+          <label className="cred-label">
             Nature of Business
           </label>
           <select
             required
             value={formData.natureOfBusiness}
             onChange={(e) => setFormData({ ...formData, natureOfBusiness: e.target.value })}
-            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
+            className="cred-input w-full"
           >
             <option value="">Select nature of business</option>
             {natureOfBusiness.map((business) => (
@@ -186,7 +186,7 @@ export default function BusinessSignupForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-mono-black text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-mono-gray-800 transition-all duration-200 disabled:opacity-50 border border-mono-gray-200 shadow-subtle"
+          className="cred-button w-full py-4 px-6 text-lg disabled:opacity-50"
         >
           {isSubmitting ? 'Joining...' : 'Join the Revolution'}
         </button>
