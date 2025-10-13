@@ -8,7 +8,7 @@ Add these environment variables in your Vercel dashboard:
 
 #### Required Variables:
 ```
-MONGODB_URI=mongodb+srv://upcapto:sdDND99mRkP8WVmc@leads.8f0y71y.mongodb.net/?retryWrites=true&w=majority&appName=leads
+MONGODB_URI=your-mongodb-atlas-connection-string-here
 MONGODB_DATABASE=upcapto
 JWT_SECRET=your-super-secure-jwt-secret-key-here
 ENCRYPTION_KEY=your-32-character-encryption-key-here
