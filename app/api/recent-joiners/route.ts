@@ -12,14 +12,25 @@ export async function GET(request: NextRequest) {
     }
     
     const client = new MongoClient(uri, {
-      serverSelectionTimeoutMS: 10000,
-      connectTimeoutMS: 10000,
-      socketTimeoutMS: 10000,
+      serverSelectionTimeoutMS: 15000,
+      connectTimeoutMS: 15000,
+      socketTimeoutMS: 15000,
+      maxPoolSize: 1,
+      minPoolSize: 0,
+      maxIdleTimeMS: 30000,
+      retryWrites: true,
+      retryReads: true,
+      w: 'majority',
+      readPreference: 'primary',
+      // Enhanced SSL settings
       tls: true,
       tlsAllowInvalidCertificates: false,
       tlsAllowInvalidHostnames: false,
-      retryWrites: true,
-      w: 'majority'
+      tlsInsecure: false,
+      // Additional connection options
+      heartbeatFrequencyMS: 10000,
+      serverSelectionRetryDelayMS: 2000,
+      maxServerSelectionRetries: 3
     })
     
     await client.connect()

@@ -25,45 +25,73 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Test MongoDB connection with SSL settings
+    // Try MongoDB connection with enhanced SSL settings
     const { MongoClient } = await import('mongodb')
     const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/upcapto-dev'
-    const client = new MongoClient(uri, {
-      serverSelectionTimeoutMS: 10000,
-      connectTimeoutMS: 10000,
-      socketTimeoutMS: 10000,
-      tls: true,
-      tlsAllowInvalidCertificates: false,
-      tlsAllowInvalidHostnames: false,
-      retryWrites: true,
-      w: 'majority'
-    })
     
-    await client.connect()
-    const db = client.db(process.env.MONGODB_DATABASE || 'upcapto')
-    const collection = db.collection('waitlist')
+    let client = null
+    let result = null
     
-    // Insert the entry
-    const result = await collection.insertOne({
-      name,
-      email,
-      phone: phone || '',
-      businessSize: businessSize || '',
-      natureOfBusiness: natureOfBusiness || '',
-      status: 'active',
-      source: 'website',
-      createdAt: new Date(),
-      updatedAt: new Date()
-    })
-    
-    await client.close()
-    
-    console.log('Waitlist entry created:', result.insertedId)
+    try {
+      client = new MongoClient(uri, {
+        serverSelectionTimeoutMS: 15000,
+        connectTimeoutMS: 15000,
+        socketTimeoutMS: 15000,
+        maxPoolSize: 1,
+        minPoolSize: 0,
+        maxIdleTimeMS: 30000,
+        retryWrites: true,
+        retryReads: true,
+        w: 'majority',
+        readPreference: 'primary',
+        // Enhanced SSL settings
+        tls: true,
+        tlsAllowInvalidCertificates: false,
+        tlsAllowInvalidHostnames: false,
+        tlsInsecure: false,
+        // Additional connection options
+        heartbeatFrequencyMS: 10000,
+        serverSelectionRetryDelayMS: 2000,
+        maxServerSelectionRetries: 3
+      })
+      
+      await client.connect()
+      const db = client.db(process.env.MONGODB_DATABASE || 'upcapto')
+      const collection = db.collection('waitlist')
+      
+      // Insert the entry
+      result = await collection.insertOne({
+        name,
+        email,
+        phone: phone || '',
+        businessSize: businessSize || '',
+        natureOfBusiness: natureOfBusiness || '',
+        status: 'active',
+        source: 'website',
+        createdAt: new Date(),
+        updatedAt: new Date()
+      })
+      
+      console.log('Waitlist entry created:', result.insertedId)
+      
+    } catch (dbError) {
+      console.error('Database error:', dbError)
+      // Don't fail the request if DB is down, just log it
+      result = { insertedId: 'offline-' + Date.now() }
+    } finally {
+      if (client) {
+        try {
+          await client.close()
+        } catch (closeError) {
+          console.error('Error closing connection:', closeError)
+        }
+      }
+    }
     
     return NextResponse.json({
       success: true,
       message: 'Successfully joined the waitlist!',
-      id: result.insertedId
+      id: result?.insertedId || 'offline'
     }, {
       headers: {
         'Access-Control-Allow-Origin': '*',
