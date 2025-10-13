@@ -3,6 +3,16 @@ import { NextRequest, NextResponse } from 'next/server'
 
 export async function GET(request: NextRequest) {
   try {
+    // Skip debug in production to avoid exposing sensitive info
+    if (process.env.NODE_ENV === 'production') {
+      return NextResponse.json({
+        success: true,
+        message: 'Debug endpoint disabled in production',
+        timestamp: new Date().toISOString(),
+        server: 'Running'
+      })
+    }
+    
     // Check environment variables
     const envVars = {
       MONGODB_URI: process.env.MONGODB_URI ? 'Set' : 'Not set',
