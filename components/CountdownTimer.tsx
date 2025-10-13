@@ -18,8 +18,8 @@ export default function CountdownTimer() {
   // Ticking sound removed
 
   useEffect(() => {
-    // Set a fixed launch date - December 25, 2025
-    const launchDate = new Date('2025-12-25T00:00:00Z').getTime()
+    // Set a fixed launch date - 89 days from now
+    const launchDate = new Date(Date.now() + (89 * 24 * 60 * 60 * 1000)).getTime()
     
     const calculateTimeLeft = () => {
       const now = new Date().getTime()
