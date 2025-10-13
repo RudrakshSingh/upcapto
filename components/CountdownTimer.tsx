@@ -18,8 +18,8 @@ export default function CountdownTimer() {
   // Ticking sound removed
 
   useEffect(() => {
-    // Set a fixed launch date 90 days from when component mounts
-    const launchDate = new Date(Date.now() + (90 * 24 * 60 * 60 * 1000)).getTime()
+    // Set a fixed launch date - December 25, 2025
+    const launchDate = new Date('2025-12-25T00:00:00Z').getTime()
     
     const calculateTimeLeft = () => {
       const now = new Date().getTime()
