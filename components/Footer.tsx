@@ -20,7 +20,7 @@ export default function Footer() {
                 <img 
                   src="/logo.png" 
                   alt="Upcapto Logo" 
-                  className="h-10 w-auto"
+                  className="h-10 w-auto brightness-0 invert"
                   onError={(e) => {
                     // Fallback to gradient icon if logo fails to load
                     e.currentTarget.style.display = 'none';
@@ -30,8 +30,8 @@ export default function Footer() {
                     }
                   }}
                 />
-                <div className="h-10 w-10 bg-accent-gradient rounded-xl flex items-center justify-center shadow-lg hidden">
-                  <span className="text-white font-display font-bold text-xl">U</span>
+                <div className="h-10 w-10 bg-white rounded-xl flex items-center justify-center shadow-lg hidden">
+                  <span className="text-gray-900 font-display font-bold text-xl">U</span>
                 </div>
               </div>
               <p className="text-gray-400 mb-4">

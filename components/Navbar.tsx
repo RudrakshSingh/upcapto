@@ -29,7 +29,7 @@ export default function Navbar() {
             <img 
               src="/logo.png" 
               alt="Upcapto Logo" 
-              className="h-12 w-auto"
+              className="h-8 w-auto"
               onError={(e) => {
                 // Fallback to gradient icon if logo fails to load
                 e.currentTarget.style.display = 'none';
@@ -39,8 +39,8 @@ export default function Navbar() {
                 }
               }}
             />
-            <div className="h-12 w-12 bg-accent-gradient rounded-xl flex items-center justify-center shadow-lg hidden">
-              <span className="text-white font-display font-bold text-xl">U</span>
+            <div className="h-8 w-8 bg-accent-gradient rounded-lg flex items-center justify-center shadow-lg hidden">
+              <span className="text-white font-display font-bold text-sm">U</span>
             </div>
           </motion.a>
 
