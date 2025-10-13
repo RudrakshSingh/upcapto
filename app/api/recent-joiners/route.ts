@@ -45,12 +45,19 @@ export async function GET(request: NextRequest) {
       isNew: index < 3
     }))
 
-    // If no real data, add some dummy data
+    // If no real data, add some dummy data with real Indian names
     if (formattedJoiners.length === 0) {
       const dummyJoiners = [
-        { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Retail', time: '2 minutes ago', isNew: true },
+        { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Restaurant', time: '2 minutes ago', isNew: true },
         { name: 'Priya Sharma', location: 'Delhi', business: 'Technology', time: '5 minutes ago', isNew: true },
-        { name: 'Amit Patel', location: 'Bangalore', business: 'Manufacturing', time: '8 minutes ago', isNew: true }
+        { name: 'Amit Patel', location: 'Bangalore', business: 'Manufacturing', time: '8 minutes ago', isNew: true },
+        { name: 'Sneha Gupta', location: 'Chennai', business: 'Healthcare', time: '12 minutes ago', isNew: false },
+        { name: 'Vikram Singh', location: 'Hyderabad', business: 'Finance', time: '15 minutes ago', isNew: false },
+        { name: 'Anita Reddy', location: 'Pune', business: 'Education', time: '18 minutes ago', isNew: false },
+        { name: 'Rohit Verma', location: 'Kolkata', business: 'Retail', time: '22 minutes ago', isNew: false },
+        { name: 'Kavya Nair', location: 'Kochi', business: 'Beauty', time: '25 minutes ago', isNew: false },
+        { name: 'Arjun Mehta', location: 'Jaipur', business: 'Jewelry', time: '28 minutes ago', isNew: false },
+        { name: 'Deepika Joshi', location: 'Lucknow', business: 'Education', time: '32 minutes ago', isNew: false }
       ]
       formattedJoiners.push(...dummyJoiners)
     }
@@ -62,14 +69,23 @@ export async function GET(request: NextRequest) {
   } catch (error) {
     console.error('Error fetching recent joiners:', error)
     
-    // Return dummy data if database fails
+    // Return dummy data if database fails with real Indian names
     const dummyJoiners = [
-      { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Retail', time: '2 minutes ago', isNew: true },
+      { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Restaurant', time: '2 minutes ago', isNew: true },
       { name: 'Priya Sharma', location: 'Delhi', business: 'Technology', time: '5 minutes ago', isNew: true },
       { name: 'Amit Patel', location: 'Bangalore', business: 'Manufacturing', time: '8 minutes ago', isNew: true },
       { name: 'Sneha Gupta', location: 'Chennai', business: 'Healthcare', time: '12 minutes ago', isNew: false },
       { name: 'Vikram Singh', location: 'Hyderabad', business: 'Finance', time: '15 minutes ago', isNew: false },
-      { name: 'Anita Reddy', location: 'Pune', business: 'Education', time: '18 minutes ago', isNew: false }
+      { name: 'Anita Reddy', location: 'Pune', business: 'Education', time: '18 minutes ago', isNew: false },
+      { name: 'Rohit Verma', location: 'Kolkata', business: 'Retail', time: '22 minutes ago', isNew: false },
+      { name: 'Kavya Nair', location: 'Kochi', business: 'Beauty', time: '25 minutes ago', isNew: false },
+      { name: 'Arjun Mehta', location: 'Jaipur', business: 'Jewelry', time: '28 minutes ago', isNew: false },
+      { name: 'Deepika Joshi', location: 'Lucknow', business: 'Education', time: '32 minutes ago', isNew: false },
+      { name: 'Suresh Yadav', location: 'Patna', business: 'Agriculture', time: '35 minutes ago', isNew: false },
+      { name: 'Meera Iyer', location: 'Coimbatore', business: 'Textiles', time: '38 minutes ago', isNew: false },
+      { name: 'Ravi Kumar', location: 'Indore', business: 'Pharmaceuticals', time: '42 minutes ago', isNew: false },
+      { name: 'Sunita Agarwal', location: 'Bhopal', business: 'Real Estate', time: '45 minutes ago', isNew: false },
+      { name: 'Manoj Tiwari', location: 'Kanpur', business: 'Logistics', time: '48 minutes ago', isNew: false }
     ]
     
     return NextResponse.json({
