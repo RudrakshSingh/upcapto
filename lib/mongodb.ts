@@ -77,11 +77,15 @@ class MongoDBService {
 
       this.client = new MongoClient(mongoUri, {
         maxPoolSize: parseInt(process.env.MONGODB_POOL_SIZE || '10'),
-        serverSelectionTimeoutMS: parseInt(process.env.MONGODB_TIMEOUT || '5000'),
+        serverSelectionTimeoutMS: parseInt(process.env.MONGODB_TIMEOUT || '10000'),
         socketTimeoutMS: parseInt(process.env.MONGODB_SOCKET_TIMEOUT || '45000'),
         connectTimeoutMS: parseInt(process.env.MONGODB_CONNECT_TIMEOUT || '10000'),
         retryWrites: true,
         retryReads: true,
+        tls: true,
+        tlsAllowInvalidCertificates: false,
+        tlsAllowInvalidHostnames: false,
+        w: 'majority',
         compressors: ['zlib'],
         zlibCompressionLevel: 6,
       })

@@ -25,10 +25,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Test MongoDB connection
+    // Test MongoDB connection with SSL settings
     const { MongoClient } = await import('mongodb')
     const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/upcapto-dev'
-    const client = new MongoClient(uri)
+    const client = new MongoClient(uri, {
+      serverSelectionTimeoutMS: 10000,
+      connectTimeoutMS: 10000,
+      socketTimeoutMS: 10000,
+      tls: true,
+      tlsAllowInvalidCertificates: false,
+      tlsAllowInvalidHostnames: false,
+      retryWrites: true,
+      w: 'majority'
+    })
     
     await client.connect()
     const db = client.db(process.env.MONGODB_DATABASE || 'upcapto')
