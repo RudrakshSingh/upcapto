@@ -26,11 +26,8 @@ export async function GET(request: NextRequest) {
       tls: true,
       tlsAllowInvalidCertificates: false,
       tlsAllowInvalidHostnames: false,
-      tlsInsecure: false,
       // Additional connection options
-      heartbeatFrequencyMS: 10000,
-      serverSelectionRetryDelayMS: 2000,
-      maxServerSelectionRetries: 3
+      heartbeatFrequencyMS: 10000
     })
     
     await client.connect()
