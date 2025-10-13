@@ -3,7 +3,64 @@ import { MongoClient } from 'mongodb'
 
 export async function GET(request: NextRequest) {
   try {
-    // Always return dummy data for now to avoid 500 errors
+    // Try to get real data from MongoDB
+    const { MongoClient } = await import('mongodb')
+    const uri = process.env.MONGODB_URI
+    
+    if (!uri) {
+      throw new Error('MongoDB URI not configured')
+    }
+    
+    const client = new MongoClient(uri, {
+      serverSelectionTimeoutMS: 5000,
+      connectTimeoutMS: 5000,
+      socketTimeoutMS: 5000
+    })
+    
+    await client.connect()
+    const db = client.db(process.env.MONGODB_DATABASE || 'upcapto')
+    const collection = db.collection('waitlist')
+    
+    // Get recent joiners from the last 24 hours
+    const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000)
+    
+    const recentJoiners = await collection
+      .find({
+        createdAt: { $gte: twentyFourHoursAgo }
+      })
+      .sort({ createdAt: -1 })
+      .limit(10)
+      .toArray()
+    
+    await client.close()
+
+    // Format real data from database
+    const formattedJoiners = recentJoiners.map((joiner, index) => ({
+      name: joiner.name,
+      location: getRandomLocation(),
+      business: joiner.natureOfBusiness || 'Business',
+      time: getTimeAgo(joiner.createdAt),
+      isNew: index < 3
+    }))
+
+    // If no real data, add some dummy data
+    if (formattedJoiners.length === 0) {
+      const dummyJoiners = [
+        { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Retail', time: '2 minutes ago', isNew: true },
+        { name: 'Priya Sharma', location: 'Delhi', business: 'Technology', time: '5 minutes ago', isNew: true },
+        { name: 'Amit Patel', location: 'Bangalore', business: 'Manufacturing', time: '8 minutes ago', isNew: true }
+      ]
+      formattedJoiners.push(...dummyJoiners)
+    }
+
+    return NextResponse.json({
+      success: true,
+      joiners: formattedJoiners
+    })
+  } catch (error) {
+    console.error('Error fetching recent joiners:', error)
+    
+    // Return dummy data if database fails
     const dummyJoiners = [
       { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Retail', time: '2 minutes ago', isNew: true },
       { name: 'Priya Sharma', location: 'Delhi', business: 'Technology', time: '5 minutes ago', isNew: true },
@@ -11,20 +68,6 @@ export async function GET(request: NextRequest) {
       { name: 'Sneha Gupta', location: 'Chennai', business: 'Healthcare', time: '12 minutes ago', isNew: false },
       { name: 'Vikram Singh', location: 'Hyderabad', business: 'Finance', time: '15 minutes ago', isNew: false },
       { name: 'Anita Reddy', location: 'Pune', business: 'Education', time: '18 minutes ago', isNew: false }
-    ]
-    
-    return NextResponse.json({
-      success: true,
-      joiners: dummyJoiners
-    })
-  } catch (error) {
-    console.error('Error fetching recent joiners:', error)
-    
-    // Return dummy data if anything fails
-    const dummyJoiners = [
-      { name: 'Rajesh Kumar', location: 'Mumbai', business: 'Retail', time: '2 minutes ago', isNew: true },
-      { name: 'Priya Sharma', location: 'Delhi', business: 'Technology', time: '5 minutes ago', isNew: true },
-      { name: 'Amit Patel', location: 'Bangalore', business: 'Manufacturing', time: '8 minutes ago', isNew: true }
     ]
     
     return NextResponse.json({
