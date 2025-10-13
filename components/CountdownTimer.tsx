@@ -18,12 +18,18 @@ export default function CountdownTimer() {
   // Classic Clock Ticking Sound
   const playTickingSound = () => {
     try {
+      // Check if audio is supported and user has interacted
+      if (typeof window === 'undefined') return
+      
       // Create or resume audio context
       const audioContext = new (window.AudioContext || (window as any).webkitAudioContext)()
       
       // Resume context if suspended (required for user interaction)
       if (audioContext.state === 'suspended') {
-        audioContext.resume()
+        audioContext.resume().catch(() => {
+          // Silently fail if audio can't be resumed
+          return
+        })
       }
       
       const oscillator = audioContext.createOscillator()
@@ -39,15 +45,15 @@ export default function CountdownTimer() {
       
       // Quick, sharp tick with higher volume
       gainNode.gain.setValueAtTime(0, audioContext.currentTime)
-      gainNode.gain.linearRampToValueAtTime(0.3, audioContext.currentTime + 0.01)
+      gainNode.gain.linearRampToValueAtTime(0.1, audioContext.currentTime + 0.01)
       gainNode.gain.exponentialRampToValueAtTime(0.001, audioContext.currentTime + 0.1)
       
       oscillator.start(audioContext.currentTime)
       oscillator.stop(audioContext.currentTime + 0.1)
       
-      console.log('Ticking sound played') // Debug log
     } catch (error) {
-      console.log('Audio not supported:', error)
+      // Silently fail - don't log errors in production
+      return
     }
   }
 
