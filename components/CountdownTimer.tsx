@@ -110,7 +110,7 @@ export default function CountdownTimer() {
           <div className="relative z-10 flex flex-col items-center justify-center h-full">
             {/* Days Counter */}
             <motion.div
-              className="text-4xl sm:text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-2"isme
+              className="text-4xl sm:text-5xl md:text-6xl font-black bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent mb-2"
               animate={{ 
                 scale: isTicking ? [1, 1.05, 1] : 1,
                 textShadow: isTicking ? "0 0 20px rgba(59, 130, 246, 0.5)" : "none"
