@@ -5,6 +5,12 @@ const nextConfig = {
   env: {
     PORT: process.env.PORT || '4000',
   },
+  // Static export for BigRock hosting
+  output: 'export',
+  trailingSlash: true,
+  images: {
+    unoptimized: true
+  }
 }
 
 module.exports = nextConfig

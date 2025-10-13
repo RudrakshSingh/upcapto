@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etelios - Transform Your Business</title>
+    <link rel="icon" href="/favicon.ico" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: #FFFFFF;
+            color: #1E293B;
+            line-height: 1.5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #db2777 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: #64748b;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .features {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+        
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1e293b;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #1e293b;
+        }
+        
+        .feature-card p {
+            color: #64748b;
+        }
+        
+        .footer {
+            background: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <div class="container">
+            <h1>TRANSFORM YOUR BUSINESS WITH ETELIOS!</h1>
+            <p>Replace 10+ business tools with one intelligent platform. Built for Global businesses, powered by AI, designed for scale.</p>
+            <a href="#contact" class="cta-button">Join the Revolution</a>
+        </div>
+    </div>
+    
+    <div class="features">
+        <div class="container">
+            <h2>Why Choose Etelios?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h3>🚀 All-in-One Platform</h3>
+                    <p>Replace 10+ different tools with one intelligent platform. Everything you need in one place.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🤖 AI-Powered</h3>
+                    <p>Built with cutting-edge AI technology to automate your business processes and boost efficiency.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🌍 Global Scale</h3>
+                    <p>Designed for businesses of all sizes, from startups to enterprise-level organizations.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📊 Real-time Analytics</h3>
+                    <p>Get instant insights into your business performance with our advanced analytics dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔒 Enterprise Security</h3>
+                    <p>Bank-level security to protect your business data and ensure compliance with industry standards.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📱 Mobile Ready</h3>
+                    <p>Access your business tools anywhere, anytime with our responsive mobile-first design.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="contact" style="padding: 80px 0; background: white;">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: #1e293b;">Join the Revolution</h2>
+            <div style="max-width: 500px; margin: 0 auto; background: #f8fafc; padding: 2rem; border-radius: 15px;">
+                <form action="mailto:contact@etelios.com" method="post" enctype="text/plain">
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Name:</label>
+                        <input type="text" name="name" required style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Email:</label>
+                        <input type="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Phone:</label>
+                        <input type="tel" name="phone" required style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 16px;">
+                    </div>
+                    <div style="margin-bottom: 1rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Business Size:</label>
+                        <select name="businessSize" required style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 16px;">
+                            <option value="">Select Business Size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="200+">200+ employees</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 1.5rem;">
+                        <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">Nature of Business:</label>
+                        <select name="businessType" required style="width: 100%; padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; font-size: 16px;">
+                            <option value="">Select Business Type</option>
+                            <option value="retail">Retail</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="services">Services</option>
+                            <option value="technology">Technology</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button type="submit" style="width: 100%; background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%); color: white; padding: 15px; border: none; border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;">
+                        Join the Revolution
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <div class="container">
+            <p>&copy; 2025 Etelios. All rights reserved.</p>
+            <p>Launching December 2025</p>
+        </div>
+    </div>
+</body>
+</html>
