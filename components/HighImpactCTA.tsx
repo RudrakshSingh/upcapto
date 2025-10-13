@@ -25,7 +25,22 @@ export default function HighImpactCTA() {
     { name: 'Priya Sharma', location: 'Delhi', business: 'Retail', time: '5 minutes ago', isNew: true },
     { name: 'Amit Singh', location: 'Bangalore', business: 'Tech', time: '8 minutes ago', isNew: true },
     { name: 'Sneha Patel', location: 'Ahmedabad', business: 'Healthcare', time: '12 minutes ago', isNew: false },
-    { name: 'Vikram Reddy', location: 'Hyderabad', business: 'Manufacturing', time: '15 minutes ago', isNew: false }
+    { name: 'Vikram Reddy', location: 'Hyderabad', business: 'Manufacturing', time: '15 minutes ago', isNew: false },
+    { name: 'Anjali Gupta', location: 'Pune', business: 'Fashion', time: '18 minutes ago', isNew: false },
+    { name: 'Rohit Verma', location: 'Chennai', business: 'Automotive', time: '22 minutes ago', isNew: false },
+    { name: 'Kavya Nair', location: 'Kochi', business: 'Beauty', time: '25 minutes ago', isNew: false },
+    { name: 'Arjun Mehta', location: 'Jaipur', business: 'Jewelry', time: '28 minutes ago', isNew: false },
+    { name: 'Deepika Joshi', location: 'Lucknow', business: 'Education', time: '32 minutes ago', isNew: false },
+    { name: 'Suresh Yadav', location: 'Patna', business: 'Agriculture', time: '35 minutes ago', isNew: false },
+    { name: 'Meera Iyer', location: 'Coimbatore', business: 'Textiles', time: '38 minutes ago', isNew: false },
+    { name: 'Ravi Kumar', location: 'Indore', business: 'Pharmaceuticals', time: '42 minutes ago', isNew: false },
+    { name: 'Sunita Agarwal', location: 'Bhopal', business: 'Real Estate', time: '45 minutes ago', isNew: false },
+    { name: 'Manoj Tiwari', location: 'Kanpur', business: 'Logistics', time: '48 minutes ago', isNew: false },
+    { name: 'Pooja Singh', location: 'Nagpur', business: 'Food & Beverage', time: '52 minutes ago', isNew: false },
+    { name: 'Kiran Desai', location: 'Vadodara', business: 'Chemicals', time: '55 minutes ago', isNew: false },
+    { name: 'Rahul Jain', location: 'Surat', business: 'Diamonds', time: '58 minutes ago', isNew: false },
+    { name: 'Shilpa Reddy', location: 'Vijayawada', business: 'IT Services', time: '1 hour ago', isNew: false },
+    { name: 'Vikash Pandey', location: 'Allahabad', business: 'Construction', time: '1 hour ago', isNew: false }
   ])
   const [showPopup, setShowPopup] = useState(true)
   const [hasNewJoiner, setHasNewJoiner] = useState(false)
@@ -82,10 +97,32 @@ export default function HighImpactCTA() {
       fetchRecentJoiners()
       
       // Add a new joiner every 15 seconds
+      const names = [
+        'Amit Kumar', 'Priya Sharma', 'Rajesh Singh', 'Sunita Gupta', 'Vikram Patel',
+        'Kavya Reddy', 'Arjun Mehta', 'Deepika Joshi', 'Rohit Verma', 'Anjali Iyer',
+        'Suresh Yadav', 'Meera Agarwal', 'Ravi Tiwari', 'Pooja Desai', 'Manoj Jain',
+        'Shilpa Nair', 'Kiran Pandey', 'Rahul Kumar', 'Sunita Singh', 'Vikash Sharma',
+        'Kavya Patel', 'Arjun Reddy', 'Deepika Mehta', 'Rohit Joshi', 'Anjali Verma',
+        'Suresh Iyer', 'Meera Yadav', 'Ravi Agarwal', 'Pooja Tiwari', 'Manoj Desai'
+      ]
+      
+      const locations = [
+        'Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Pune', 'Hyderabad', 'Ahmedabad',
+        'Kolkata', 'Surat', 'Jaipur', 'Lucknow', 'Kanpur', 'Nagpur', 'Indore',
+        'Thane', 'Bhopal', 'Visakhapatnam', 'Pimpri', 'Patna', 'Vadodara'
+      ]
+      
+      const businesses = [
+        'Restaurant', 'Retail', 'Tech', 'Healthcare', 'Manufacturing', 'Fashion',
+        'Automotive', 'Beauty', 'Jewelry', 'Education', 'Agriculture', 'Textiles',
+        'Pharmaceuticals', 'Real Estate', 'Logistics', 'Food & Beverage', 'Chemicals',
+        'Diamonds', 'IT Services', 'Construction', 'Finance', 'Travel', 'Entertainment'
+      ]
+      
       const newJoiner = {
-        name: `User ${Math.floor(Math.random() * 1000)}`,
-        location: ['Mumbai', 'Delhi', 'Bangalore', 'Chennai', 'Pune'][Math.floor(Math.random() * 5)],
-        business: ['Restaurant', 'Retail', 'Tech', 'Healthcare', 'Manufacturing'][Math.floor(Math.random() * 5)],
+        name: names[Math.floor(Math.random() * names.length)],
+        location: locations[Math.floor(Math.random() * locations.length)],
+        business: businesses[Math.floor(Math.random() * businesses.length)],
         time: 'just now',
         isNew: true
       }
