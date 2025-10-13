@@ -1,8 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
-import { motion } from 'framer-motion'
-import { useFormHoverAnimation, useButtonHoverAnimation } from '@/lib/useCredAnimations'
+import { useState } from 'react'
 
 const businessSizes = [
   { value: '1-10', label: '1-10 employees' },
@@ -46,14 +44,12 @@ export default function BusinessSignupForm() {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
-  
-  // CRED-style hover animations
-  const formRef = useFormHoverAnimation()
-  const buttonRef = useButtonHoverAnimation()
+  const [error, setError] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError('')
     
     try {
       const response = await fetch('/api/waitlist-working', {
@@ -68,11 +64,16 @@ export default function BusinessSignupForm() {
         })
       })
       
+      const data = await response.json()
+      
       if (response.ok) {
         setIsSubmitted(true)
+      } else {
+        setError(data.error || 'Something went wrong. Please try again.')
       }
     } catch (error) {
       console.error('Error:', error)
+      setError('Network error. Please check your connection and try again.')
     } finally {
       setIsSubmitting(false)
     }
@@ -80,60 +81,41 @@ export default function BusinessSignupForm() {
 
   if (isSubmitted) {
     return (
-        <div
-          className="bg-cred-white/20 backdrop-blur-lg rounded-2xl p-8 text-center shadow-2xl border border-cred-gray-200/30"
-        >
-        <div className="w-16 h-16 bg-cred-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-cred-white border-t-transparent rounded-full animate-spin"></div>
+      <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 text-center shadow-2xl border border-gray-200/30">
+        <div className="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
         </div>
-        <h3 className="text-2xl font-bold text-cred-black mb-2">You're In!</h3>
-        <p className="text-cred-gray-600">We'll notify you when we launch.</p>
-        </div>
+        <h3 className="text-2xl font-bold text-black mb-2">You're In!</h3>
+        <p className="text-gray-600">We'll notify you when we launch.</p>
+      </div>
     )
   }
 
   return (
-    <motion.form
-      ref={formRef}
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+    <form
       onSubmit={handleSubmit}
-      className="bg-cred-white/20 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-cred-gray-200/30"
+      className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-200/30"
     >
       <div className="space-y-6">
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
-          <label className="block text-sm font-semibold text-cred-gray-700 mb-2 font-subheading">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
             Full Name
           </label>
-          <motion.input
-            whileFocus={{ 
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-              borderColor: "rgba(59, 130, 246, 0.5)"
-            }}
+          <input
             type="text"
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 bg-cred-white/20 backdrop-blur-sm border border-cred-gray-200/30 rounded-lg focus:ring-2 focus:ring-cred-blue-500 focus:border-transparent focus:bg-cred-white/30 transition-all duration-300 font-body"
+            className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-gray-200/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
             placeholder="Enter your full name"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Business Email
           </label>
-          <motion.input
-            whileFocus={{ 
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-              borderColor: "rgba(59, 130, 246, 0.5)"
-            }}
+          <input
             type="email"
             required
             value={formData.email}
@@ -141,20 +123,13 @@ export default function BusinessSignupForm() {
             className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
             placeholder="Enter your business email"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Mobile Number
           </label>
-          <motion.input
-            whileFocus={{ 
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-              borderColor: "rgba(59, 130, 246, 0.5)"
-            }}
+          <input
             type="tel"
             required
             value={formData.phone}
@@ -162,20 +137,13 @@ export default function BusinessSignupForm() {
             className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
             placeholder="Enter your mobile number"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Business Size
           </label>
-          <motion.select
-            whileFocus={{ 
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-              borderColor: "rgba(59, 130, 246, 0.5)"
-            }}
+          <select
             required
             value={formData.businessSize}
             onChange={(e) => setFormData({ ...formData, businessSize: e.target.value })}
@@ -187,21 +155,14 @@ export default function BusinessSignupForm() {
                 {size.label}
               </option>
             ))}
-          </motion.select>
-        </motion.div>
+          </select>
+        </div>
 
-        <motion.div
-          whileFocus={{ scale: 1.02 }}
-          transition={{ duration: 0.2 }}
-        >
+        <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">
             Nature of Business
           </label>
-          <motion.select
-            whileFocus={{ 
-              boxShadow: "0 0 20px rgba(59, 130, 246, 0.3)",
-              borderColor: "rgba(59, 130, 246, 0.5)"
-            }}
+          <select
             required
             value={formData.natureOfBusiness}
             onChange={(e) => setFormData({ ...formData, natureOfBusiness: e.target.value })}
@@ -213,63 +174,23 @@ export default function BusinessSignupForm() {
                 {business.label}
               </option>
             ))}
-          </motion.select>
-        </motion.div>
+          </select>
+        </div>
 
-        <motion.button
-          ref={buttonRef}
-          whileHover={{ 
-            scale: 1.05,
-            boxShadow: "0 20px 40px rgba(59, 130, 246, 0.4)"
-          }}
-          whileTap={{ scale: 0.95 }}
-          animate={{
-            boxShadow: [
-              "0 10px 30px rgba(59, 130, 246, 0.3)",
-              "0 15px 35px rgba(59, 130, 246, 0.4)",
-              "0 10px 30px rgba(59, 130, 246, 0.3)"
-            ]
-          }}
-          transition={{
-            boxShadow: {
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }
-          }}
+        {error && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded-lg">
+            {error}
+          </div>
+        )}
+
+        <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-cred-blue-600/80 to-cred-purple-600/80 backdrop-blur-sm text-cred-white py-4 px-6 rounded-lg font-bold text-lg hover:from-cred-blue-700/90 hover:to-cred-purple-700/90 transition-all duration-200 disabled:opacity-50 border border-cred-gray-200/20 shadow-xl relative overflow-hidden font-heading"
+          className="w-full bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm text-white py-4 px-6 rounded-lg font-bold text-lg hover:from-blue-700/90 hover:to-purple-700/90 transition-all duration-200 disabled:opacity-50 border border-gray-200/20 shadow-xl"
         >
-          {/* Button shimmer effect */}
-          <motion.div
-            animate={{
-              x: ['-100%', '100%']
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-cred-white/20 to-transparent"
-            style={{
-              transform: 'skewX(-20deg)'
-            }}
-          />
-          <span className="relative z-10">
-            {isSubmitting ? (
-              <motion.span
-                animate={{ rotate: 360 }}
-                transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-              >
-                Joining...
-              </motion.span>
-            ) : (
-              'Join the Revolution'
-            )}
-          </span>
-        </motion.button>
+          {isSubmitting ? 'Joining...' : 'Join the Revolution'}
+        </button>
       </div>
-    </motion.form>
+    </form>
   )
 }

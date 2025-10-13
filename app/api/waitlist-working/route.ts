@@ -1,6 +1,17 @@
 // Simple working waitlist API
 import { NextRequest, NextResponse } from 'next/server'
 
+export async function OPTIONS(request: NextRequest) {
+  return new NextResponse(null, {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'POST, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type',
+    },
+  })
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -20,7 +31,7 @@ export async function POST(request: NextRequest) {
     const client = new MongoClient(uri)
     
     await client.connect()
-    const db = client.db('upcapto-dev')
+    const db = client.db(process.env.MONGODB_DATABASE || 'upcapto')
     const collection = db.collection('waitlist')
     
     // Insert the entry
@@ -44,6 +55,12 @@ export async function POST(request: NextRequest) {
       success: true,
       message: 'Successfully joined the waitlist!',
       id: result.insertedId
+    }, {
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
     })
     
   } catch (error) {
@@ -53,6 +70,13 @@ export async function POST(request: NextRequest) {
       success: false,
       error: 'Failed to join waitlist',
       details: error instanceof Error ? error.message : 'Unknown error'
-    }, { status: 500 })
+    }, { 
+      status: 500,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    })
   }
 }
