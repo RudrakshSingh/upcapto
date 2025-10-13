@@ -109,15 +109,12 @@ export default function HighImpactCTA() {
   }, [])
 
   return (
-    <section ref={containerRef} className="relative py-20 bg-cred-white overflow-hidden">
-      {/* 3D Animated Globe Background */}
-      <Background3D />
-      
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/5 to-purple-600/5"></div>
+    <section ref={containerRef} className="relative py-20 bg-mono-gray-50 overflow-hidden">
+      {/* Subtle Background Elements */}
+      <div className="absolute inset-0 bg-subtle-gradient"></div>
       <div className="absolute top-0 left-0 w-full h-full">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-20 left-10 w-72 h-72 bg-mono-gray-200/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-mono-gray-300/20 rounded-full blur-3xl"></div>
       </div>
 
       {/* Professional Floating Elements */}
@@ -133,7 +130,7 @@ export default function HighImpactCTA() {
             repeat: Infinity,
             ease: "easeInOut"
           }}
-          className="absolute top-1/4 left-1/4 w-8 h-8 bg-blue-500/20 rounded-full opacity-30"
+          className="absolute top-1/4 left-1/4 w-6 h-6 bg-mono-gray-300/30 rounded-full opacity-20"
         />
         
         <motion.div
@@ -147,7 +144,7 @@ export default function HighImpactCTA() {
             ease: "easeInOut",
             delay: 1
           }}
-          className="absolute top-1/3 right-1/4 w-6 h-6 bg-purple-500/20 rounded-lg opacity-30"
+          className="absolute top-1/3 right-1/4 w-4 h-4 bg-mono-gray-400/30 rounded-lg opacity-20"
         />
 
         <motion.div
@@ -161,7 +158,7 @@ export default function HighImpactCTA() {
             ease: "easeInOut",
             delay: 2
           }}
-          className="absolute bottom-1/3 left-1/3 w-4 h-4 bg-blue-600/20 rounded-full opacity-30"
+          className="absolute bottom-1/3 left-1/3 w-3 h-3 bg-mono-gray-400/30 rounded-full opacity-20"
         />
 
         <motion.div
@@ -175,7 +172,7 @@ export default function HighImpactCTA() {
             ease: "easeInOut",
             delay: 0.5
           }}
-          className="absolute bottom-1/4 right-1/3 w-5 h-5 bg-purple-600/20 rounded-lg opacity-30"
+          className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-mono-gray-300/30 rounded-lg opacity-20"
         />
 
         {/* Floating Particles */}
@@ -193,7 +190,7 @@ export default function HighImpactCTA() {
               ease: "easeInOut",
               delay: Math.random() * 2
             }}
-            className="absolute w-2 h-2 bg-blue-500/30 rounded-full"
+            className="absolute w-1 h-1 bg-mono-gray-400/40 rounded-full"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`
@@ -208,9 +205,9 @@ export default function HighImpactCTA() {
             ref={headingRef}
             className="mb-12 mt-8"
           >
-            <h1 className="text-5xl md:text-7xl font-black text-cred-black mb-6 font-display">
+            <h1 className="text-5xl md:text-7xl font-black text-mono-black mb-6 font-display">
               GET
-              <span className="bg-gradient-to-r from-cred-blue-600 via-cred-purple-600 to-cred-green-600 bg-clip-text text-transparent">
+              <span className="text-mono-gray-600">
                 {' '}SUPER PUMPED
               </span>
               <br />
@@ -219,7 +216,7 @@ export default function HighImpactCTA() {
           </div>
           
           <div ref={descriptionRef}>
-            <p className="text-xl md:text-2xl text-cred-gray-600 max-w-3xl mx-auto mb-8 font-body font-medium">
+            <p className="text-xl md:text-2xl text-mono-gray-600 max-w-3xl mx-auto mb-8 font-body font-medium">
               Replace 10+ business tools with one intelligent platform. Built for Global businesses, powered by AI, designed for scale.
             </p>
           </div>
@@ -227,35 +224,12 @@ export default function HighImpactCTA() {
           {/* Countdown Timer */}
           <div ref={timerRef} className="mb-12">
             <div 
-              className="rounded-2xl p-8 shadow-2xl relative overflow-hidden"
-              style={{
-                background: `linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 50%, rgba(255,255,255,0.02) 100%)`,
-                backdropFilter: 'blur(20px) saturate(180%)',
-                WebkitBackdropFilter: 'blur(20px) saturate(180%)',
-                boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37)',
-                border: '1px solid rgba(255, 255, 255, 0.18)'
-              }}
+              className="rounded-2xl p-8 shadow-subtle-lg relative overflow-hidden bg-white border border-mono-gray-200"
             >
-              {/* iPhone-style glass shimmer */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
-                animate={{
-                  x: ['-100%', '100%']
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                style={{
-                  background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent)',
-                  transform: 'skewX(-20deg)'
-                }}
-              />
               
               {/* Glass reflection */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent rounded-2xl" />
-              <h3 className="text-2xl font-bold text-cred-black mb-6">
+              <h3 className="text-2xl font-bold text-mono-black mb-6">
                 Launching in:
               </h3>
               <CountdownTimer />

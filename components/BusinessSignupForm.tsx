@@ -81,12 +81,12 @@ export default function BusinessSignupForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 text-center shadow-2xl border border-gray-200/30">
-        <div className="w-16 h-16 bg-green-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-          <div className="w-8 h-8 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+      <div className="bg-white rounded-2xl p-8 text-center shadow-subtle-lg border border-mono-gray-200">
+        <div className="w-16 h-16 bg-mono-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
+          <div className="w-8 h-8 border-4 border-mono-gray-400 border-t-transparent rounded-full animate-spin"></div>
         </div>
-        <h3 className="text-2xl font-bold text-black mb-2">You're In!</h3>
-        <p className="text-gray-600">We'll notify you when we launch.</p>
+        <h3 className="text-2xl font-bold text-mono-black mb-2">You're In!</h3>
+        <p className="text-mono-gray-600">We'll notify you when we launch.</p>
       </div>
     )
   }
@@ -94,11 +94,11 @@ export default function BusinessSignupForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white/20 backdrop-blur-lg rounded-2xl p-8 shadow-2xl border border-gray-200/30"
+      className="bg-white rounded-2xl p-8 shadow-subtle-lg border border-mono-gray-200"
     >
       <div className="space-y-6">
         <div>
-          <label className="block text-sm font-semibold text-gray-700 mb-2">
+          <label className="block text-sm font-semibold text-mono-gray-700 mb-2">
             Full Name
           </label>
           <input
@@ -106,13 +106,13 @@ export default function BusinessSignupForm() {
             required
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-gray-200/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
+            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
             placeholder="Enter your full name"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
             Business Email
           </label>
           <input
@@ -120,13 +120,13 @@ export default function BusinessSignupForm() {
             required
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
+            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
             placeholder="Enter your business email"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
             Mobile Number
           </label>
           <input
@@ -134,20 +134,20 @@ export default function BusinessSignupForm() {
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
+            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
             placeholder="Enter your mobile number"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
             Business Size
           </label>
           <select
             required
             value={formData.businessSize}
             onChange={(e) => setFormData({ ...formData, businessSize: e.target.value })}
-            className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
+            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
           >
             <option value="">Select business size</option>
             {businessSizes.map((size) => (
@@ -159,14 +159,14 @@ export default function BusinessSignupForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-2">
+          <label className="block text-sm font-medium text-mono-gray-700 mb-2">
             Nature of Business
           </label>
           <select
             required
             value={formData.natureOfBusiness}
             onChange={(e) => setFormData({ ...formData, natureOfBusiness: e.target.value })}
-            className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent focus:bg-white/30 transition-all duration-300"
+            className="w-full px-4 py-3 bg-mono-gray-50 border border-mono-gray-200 rounded-lg focus:ring-2 focus:ring-mono-gray-400 focus:border-mono-gray-400 focus:bg-white transition-all duration-300"
           >
             <option value="">Select nature of business</option>
             {natureOfBusiness.map((business) => (
@@ -186,7 +186,7 @@ export default function BusinessSignupForm() {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm text-white py-4 px-6 rounded-lg font-bold text-lg hover:from-blue-700/90 hover:to-purple-700/90 transition-all duration-200 disabled:opacity-50 border border-gray-200/20 shadow-xl"
+          className="w-full bg-mono-black text-white py-4 px-6 rounded-lg font-bold text-lg hover:bg-mono-gray-800 transition-all duration-200 disabled:opacity-50 border border-mono-gray-200 shadow-subtle"
         >
           {isSubmitting ? 'Joining...' : 'Join the Revolution'}
         </button>
