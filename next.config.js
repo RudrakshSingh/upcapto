@@ -5,9 +5,9 @@ const nextConfig = {
   env: {
     PORT: process.env.PORT || '4000',
   },
-  // Remove static export for Netlify deployment
-  // output: 'export',
-  // trailingSlash: true,
+  // Enable static export for BigRock deployment
+  output: 'export',
+  trailingSlash: true,
   images: {
     unoptimized: true
   }
