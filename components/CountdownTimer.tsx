@@ -45,8 +45,7 @@ export default function CountdownTimer() {
     const timer = setInterval(() => {
       const newTime = calculateTimeLeft()
       
-      // Play ticking sound every second
-      // Ticking sound removed
+      // Ticking animation
       setIsTicking(true)
       setTimeout(() => setIsTicking(false), 200)
       
@@ -65,7 +64,7 @@ export default function CountdownTimer() {
     }, 1000)
 
     return () => clearInterval(timer)
-  }, [isUrgent])
+  }, [])
 
   // No need for clock hands rotation anymore
 

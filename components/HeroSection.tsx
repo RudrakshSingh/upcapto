@@ -538,7 +538,7 @@ export default function HeroSection() {
                       >
                         ✅
                       </motion.span>
-                      Successfully joined the waitlist! Check your email for confirmation.
+                      🎉 You have successfully availed the launch offer! Early bird benefits unlocked!
                     </span>
                   </motion.div>
                 )}

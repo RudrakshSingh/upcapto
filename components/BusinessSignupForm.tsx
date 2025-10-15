@@ -168,8 +168,14 @@ export default function BusinessSignupForm() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
         >
-          <h3 className="cred-subheading text-2xl mb-2 text-green-600">You're In!</h3>
-          <p className="cred-body text-gray-600">We'll notify you when we launch.</p>
+          <h3 className="cred-subheading text-2xl mb-2 text-green-600">🎉 You're In!</h3>
+          <p className="cred-body text-gray-600 mb-3">You have successfully availed the launch offer!</p>
+          <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-3 mb-4">
+            <p className="text-sm text-orange-700 font-medium">
+              🚀 Early Bird Benefits: 50% off on first year + Priority support + Exclusive features
+            </p>
+          </div>
+          <p className="cred-body text-gray-500 text-sm">We'll notify you when we launch with your exclusive benefits.</p>
         </motion.div>
       </div>
     )
