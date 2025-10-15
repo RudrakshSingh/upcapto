@@ -172,7 +172,7 @@ export default function BusinessSignupForm() {
           <p className="cred-body text-gray-600 mb-3">You have successfully availed the launch offer!</p>
           <div className="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-3 mb-4">
             <p className="text-sm text-orange-700 font-medium">
-              🚀 You be shortlisted to see the business revolution at 50% off
+              🚀 You will be shortlisted for 50% off
             </p>
           </div>
           <p className="cred-body text-gray-500 text-sm font-bold">See you on launch date</p>

@@ -538,7 +538,7 @@ export default function HeroSection() {
                       >
                         ✅
                       </motion.span>
-                      🎉 You have successfully availed the launch offer! You be shortlisted to see the business revolution at 50% off!
+                      🎉 You have successfully availed the launch offer! You will be shortlisted for 50% off!
                     </span>
                   </motion.div>
                 )}
