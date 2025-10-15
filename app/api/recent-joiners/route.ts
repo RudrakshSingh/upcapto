@@ -91,7 +91,8 @@ export async function GET(request: NextRequest) {
           location: locations[Math.floor(Math.random() * locations.length)],
           business: businesses[Math.floor(Math.random() * businesses.length)],
           time: i === 0 ? 'just now' : `${i + 1} min ago`,
-          isNew: true
+          isNew: true,
+          realData: false // Flag to identify dummy data
         })
       }
     }
@@ -111,14 +112,16 @@ export async function GET(request: NextRequest) {
         location: 'Mumbai',
         business: 'Retail',
         time: 'just now',
-        isNew: true
+        isNew: true,
+        realData: false
       },
       {
         name: 'Priya Sharma',
         location: 'Delhi',
         business: 'Tech',
         time: '2 min ago',
-        isNew: true
+        isNew: true,
+        realData: false
       }
     ]
     
