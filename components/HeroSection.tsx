@@ -73,7 +73,9 @@ export default function HeroSection() {
         body: JSON.stringify({
           name: `${formData.firstName} ${formData.lastName}`.trim(),
           email: formData.email,
-          phone: formData.phone
+          phone: formData.phone,
+          businessSize: '1-10', // Default for hero section
+          natureOfBusiness: 'retail' // Default for hero section
         })
       })
 
