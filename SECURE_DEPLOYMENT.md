@@ -8,7 +8,7 @@
 2. **Navigate to:** Site settings → Environment variables
 3. **Add new variable:**
    - **Key:** `MONGODB_URI`
-   - **Value:** `mongodb+srv://upcapto:sdDND99mRkP8WVmc@leads.8f0y71y.mongodb.net/?retryWrites=true&w=majority&appName=leads`
+   - **Value:** `your_mongodb_atlas_connection_string_here`
 
 ### Step 2: MongoDB Atlas Configuration
 
