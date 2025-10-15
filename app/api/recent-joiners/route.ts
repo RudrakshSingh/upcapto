@@ -17,14 +17,16 @@ export async function GET(request: NextRequest) {
           location: 'Mumbai',
           business: 'Retail',
           time: 'just now',
-          isNew: true
+          isNew: true,
+          realData: false
         },
         {
           name: 'Priya Sharma',
           location: 'Delhi',
           business: 'Tech',
           time: '2 min ago',
-          isNew: true
+          isNew: true,
+          realData: false
         }
       ]
       

@@ -143,13 +143,13 @@ export async function POST(request: NextRequest) {
       id: result.insertedId.toString()
     }, { status: 201 })
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error processing waitlist submission:', error)
     
     return NextResponse.json(
       { 
         error: 'Internal server error',
-        details: process.env.NODE_ENV === 'development' ? error.message : undefined
+        details: process.env.NODE_ENV === 'development' ? error?.message : undefined
       },
       { status: 500 }
     )
