@@ -57,12 +57,12 @@ export async function GET(request: NextRequest) {
       timestamp: new Date().toISOString()
     })
 
-  } catch (error) {
+  } catch (error: any) {
     console.error('Database test error:', error)
     
     return NextResponse.json({
       success: false,
-      error: error.message,
+      error: error?.message || 'Unknown error occurred',
       databaseStatus: 'error'
     })
   } finally {
