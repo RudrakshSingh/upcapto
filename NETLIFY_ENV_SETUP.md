@@ -10,7 +10,7 @@
 4. **Add these variables:**
 
 ```
-MONGODB_URI=mongodb+srv://upcapto:sdDND99mRkP8WVmc@leads.8f0y71y.mongodb.net/?retryWrites=true&w=majority&appName=leads
+MONGODB_URI=your_mongodb_atlas_connection_string_here
 NODE_ENV=production
 ```
 

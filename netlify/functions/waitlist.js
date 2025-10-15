@@ -69,7 +69,18 @@ exports.handler = async (event, context) => {
     }
 
     // Connect to MongoDB Atlas
-    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://upcapto:sdDND99mRkP8WVmc@leads.8f0y71y.mongodb.net/?retryWrites=true&w=majority&appName=leads';
+    const mongoUri = process.env.MONGODB_URI;
+    
+    if (!mongoUri) {
+      console.error('MONGODB_URI environment variable is not set');
+      return {
+        statusCode: 500,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({ error: 'Database configuration error' }),
+      };
+    }
     
     client = new MongoClient(mongoUri, {
       serverSelectionTimeoutMS: 10000,

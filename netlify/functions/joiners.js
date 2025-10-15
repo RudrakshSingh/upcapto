@@ -29,7 +29,40 @@ exports.handler = async (event, context) => {
 
   try {
     // Connect to MongoDB Atlas
-    const mongoUri = process.env.MONGODB_URI || 'mongodb+srv://upcapto:sdDND99mRkP8WVmc@leads.8f0y71y.mongodb.net/?retryWrites=true&w=majority&appName=leads';
+    const mongoUri = process.env.MONGODB_URI;
+    
+    if (!mongoUri) {
+      console.error('MONGODB_URI environment variable is not set');
+      // Return dummy data if no database connection
+      const dummyJoiners = [
+        {
+          name: 'Rajesh Kumar',
+          location: 'Mumbai',
+          business: 'Retail',
+          time: 'just now',
+          isNew: true
+        },
+        {
+          name: 'Priya Sharma',
+          location: 'Delhi',
+          business: 'Tech',
+          time: '2 min ago',
+          isNew: true
+        }
+      ];
+      
+      return {
+        statusCode: 200,
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          success: true,
+          joiners: dummyJoiners
+        }),
+      };
+    }
     
     client = new MongoClient(mongoUri, {
       serverSelectionTimeoutMS: 10000,
